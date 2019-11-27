@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'chats#video'
+  resources :chats, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
+    collection do
+      get 'video'
+    end
+  end
 end
