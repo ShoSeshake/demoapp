@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_150123) do
+ActiveRecord::Schema.define(version: 2019_11_27_150751) do
+
+  create_table "chat_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "score", null: false
+    t.text "text", null: false
+    t.bigint "chat_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_chat_reviews_on_chat_id"
+    t.index ["user_id"], name: "index_chat_reviews_on_user_id"
+  end
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "adviser_peer_id"
@@ -37,6 +48,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_150123) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chat_reviews", "chats"
+  add_foreign_key "chat_reviews", "users"
   add_foreign_key "chats", "users"
   add_foreign_key "chats", "users", column: "adviser_id"
 end
