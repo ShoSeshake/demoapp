@@ -89,6 +89,7 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'devise'
 gem 'cancancan'
 gem 'rails_admin'
+gem "rails_admin_import"
 # エラー発見用
 gem 'pry-rails'
 gem 'rubocop'
@@ -108,4 +109,7 @@ gem 'impressionist'
 gem 'active_hash'
 # jquery
 gem 'jquery-rails'
+
 gem 'kaminari'
+
+gem 'rails-i18n'
