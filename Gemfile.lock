@@ -156,6 +156,11 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.3.2)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     gretel (3.0.9)
       rails (>= 3.1.0)
     haml (5.1.2)
@@ -316,6 +321,8 @@ GEM
       ffi (~> 1.0)
     regexp_parser (1.6.0)
     remotipart (1.4.3)
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -445,6 +452,7 @@ DEPENDENCIES
   fog-aws
   font-awesome-rails
   font-awesome-sass (~> 5.4.1)
+  gon
   gretel
   haml-rails
   impressionist

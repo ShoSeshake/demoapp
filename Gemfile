@@ -115,3 +115,5 @@ gem 'kaminari'
 gem 'rails-i18n'
 
 gem 'webpacker'
+
+gem 'gon'
