@@ -87,6 +87,8 @@ gem 'font-awesome-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
 # ユーザー機能
 gem 'devise'
+gem 'cancancan'
+gem 'rails_admin'
 # エラー発見用
 gem 'pry-rails'
 gem 'rubocop'
