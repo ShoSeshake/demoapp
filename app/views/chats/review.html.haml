@@ -1,0 +1,12 @@
+-# sample of review page
+-if chat.adviser_id = current_user.id
+  =form_for @chat_review do |f|
+    =f.hidden_field :score
+    =f.text_field :text
+    =f.submit
+-elsif chat.user_id = current_user.id
+  =form_for @chat_review do |f|
+    =f.hidden_field :score
+    =f.text_field :text
+    =f.submit
+-else
