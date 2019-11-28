@@ -3,5 +3,5 @@ class Chat < ApplicationRecord
   belongs_to :user, class_name: "User"
   has_many :chat_reviews
 
-  validates :start_at presence: true
+  validates :start_at, presence: true
 end

@@ -92,6 +92,9 @@ ja:
         title: "%{model_label} '%{object_label}'の履歴"
         menu: "履歴"
         breadcrumb: "履歴"
+      import:
+        menu: "インポート"
+        breadcrumb: "インポート"
     form:
       cancel: "キャンセル"
       basic_info: "基本情報"
@@ -127,5 +130,3 @@ ja:
         default_col_sep: ","
         col_sep: "区切り文字"
         col_sep_help: "空白の場合は'%{value}'区切りです" # value is default_col_sep
-    import:
-        
