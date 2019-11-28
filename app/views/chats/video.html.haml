@@ -2,14 +2,13 @@
   .videochat__top
     #video-container.videochat__video-box
       %video#their-video{:autoplay => ""}
-      %video#my-video{:autoplay => "", :muted => "true"}
+      -# %video#my-video{:autoplay => "", :muted => "true"}
     .chat-box
       .chat-box__header
         .chat-box__header__title
           Chat
         .chat-box__header__clock#RealtimeClock
-      .chat-box__body
-        #content
+      .chat-box__body#content
   / Steps
   .videochat__bottom
     .videochat__bottom__left
@@ -28,4 +27,4 @@
         %button.pure-button.pure-button-success{:href => "#", :type => "submit"} End Call
       -# %button#btn start
     .videochat__bottom__right
-      -# %video#my-video{:autoplay => "", :muted => "true"}
+      %video#my-video{:autoplay => "", :muted => "true"}

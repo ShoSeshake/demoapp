@@ -37,16 +37,21 @@
 
 #their-video {
     // position: absolute;
+    margin: 0 auto;
     width: 100%;
     background-color: black;
 }
 
 #my-video {
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 30%;
     background-color: darkgrey;
+    // on video
+    // top: 0;
+    // left: 0;
+    // position: absolute;
+    // width: 30%;
+    // right bottom
+    width: 100%;
+    margin: 0 auto;
 }
 
 .videochat__bottom {
