@@ -15,10 +15,8 @@ class ChatsController < ApplicationController
   def receive
     @chat = Chat.find(params[:id])
     if @chat.user_peer_id.present?
-      respond_to do |format|
-        format.html
-        format.json
-      end
+      # binding.pry
+      render 'receive.js.erb'
     end
   end
 
