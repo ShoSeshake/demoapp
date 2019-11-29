@@ -1,6 +1,6 @@
 $(function() {
     var noReady = $('.no-ready');
-    if (noReady) {
+    if (noReady.length > 0) {
         var receivePeer = function() {
             var chatId = $('.chat-box').data('chat');
             $.ajax({

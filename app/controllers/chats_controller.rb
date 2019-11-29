@@ -10,14 +10,12 @@ class ChatsController < ApplicationController
   def update
     @chat = Chat.find(params[:id])
     @chat.update(chat_params)
+    render 'update.js.erb'
   end
 
   def receive
     @chat = Chat.find(params[:id])
-    if @chat.user_peer_id.present?
-      # binding.pry
-      render 'receive.js.erb'
-    end
+    render 'receive.js.erb'
   end
 
   private
