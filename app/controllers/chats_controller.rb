@@ -16,7 +16,7 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     if @chat.user_peer_id.present?
       respond_to do |format|
-        format.html { redirect_to group_messages_path[@group.id]}
+        format.html
         format.json
       end
     end
