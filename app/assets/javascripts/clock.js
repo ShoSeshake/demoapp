@@ -17,7 +17,7 @@ $(function() {
             if (second < 10) second = "0" + second;
 
             // 現在時刻を表示する
-            elem.innerHTML = hour + ":" + minute + ":" + second;
+            elem.html(hour + ":" + minute + ":" + second);
 
             // 500ミリ秒後に再帰呼び出し
             setTimeout(digitalClock, 500);
