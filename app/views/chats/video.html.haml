@@ -20,8 +20,8 @@
         %form#make-call.no-ready
           %input{type:"hidden", id:"their-id"}
           %button#callbtn{disabled:"disabled"} 通話開始 
+      #timer
       %form#end-call.pure-form
         %button.pure-button.pure-button-success{:href => "#", :type => "submit"} End Call
-      -# %button#btn start
     .videochat__bottom__right
       %video#my-video{:autoplay => "", :muted => "true"}
