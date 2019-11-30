@@ -15,22 +15,29 @@
     &__user {
         padding: 10px 0;
         text-align: center;
-        &__name {}
+        &__name {
+            font-size: 20px;
+            font-weight: bold;
+        }
         &__icon {
             .user-icon {
                 display: block;
                 margin: 10px auto;
-                height: 100px;
-                width: 100px;
+                height: 140px;
+                width: 140px;
                 border-radius: 50%;
                 background-color: black;
             }
         }
-        &__school {}
+        &__school {
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
     &__score {
         margin: 0 auto;
         text-align: center;
+        cursor: default;
     }
     #chat-review-text {
         width: 90%;

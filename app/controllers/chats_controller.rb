@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   
-  # before_action :set_chat
+  # before_action :set_chat, only: [:update, :video, :recieve]
 
   def new
     @chat = Chat.new
