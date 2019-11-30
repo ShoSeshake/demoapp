@@ -60,14 +60,34 @@
     &__left {
         width: 70%;
         margin-right: 20px;
+        display: flex;
+        #user_peer_btn,
+        button {
+            border: $orange solid 1px;
+            color: $orange;
+            font-size: 20px;
+            width: 100%;
+            padding: 10px 30px;
+            border-radius: 5px;
+            background-color: white;
+            &:hover {
+                background-color: $orange;
+                color: white;
+            }
+            &:disabled {
+                border: lightgrey solid 1px;
+                background-color: lightgrey;
+                color: white;
+                cursor: not-allowed;
+            }
+        }
     }
     &__right {
         width: 30%;
     }
 }
 
-.yycountdown-box {
+#timer {
+    width: 40%;
     text-align: center;
-    margin: 10px 0;
-    color: #000000;
 }

@@ -27,6 +27,7 @@ $(function() {
         if (UserPeerId) {
             peer.on('open', () => {
                 UserPeerId.val(peer.id);
+                $('#user_peer_btn').prop("disabled", false);
             });
         }
 
@@ -71,6 +72,8 @@ $(function() {
             call.on('stream', (stream) => {
                 addVideo(call, stream);
                 // 文字起こし関数を呼び出し
+                $('#end_call_btn').prop("disabled", false);
+
                 speechToText();
                 // 20分タイマー
                 timer20min();
@@ -127,6 +130,7 @@ $(function() {
         }
 
         var timeUp = function() {
+            // タイムアップ後のアクションをここで定義
             container.remove();
         }
 

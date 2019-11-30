@@ -15,13 +15,13 @@
       -if current_user.id ==  @chat.user_id
         =form_with model: @chat, method: :patch do |f|
           =f.hidden_field :user_peer_id
-          =f.submit '準備完了',id:"user_peer_btn"
+          =f.submit '準備完了',id:"user_peer_btn", disabled:"disabled"
       -elsif current_user.id == @chat.adviser_id
         %form#make-call.no-ready
           %input{type:"hidden", id:"their-id"}
-          %button#callbtn{disabled:"disabled"} 通話開始 
+          %button#callbtn{disabled:"disabled"} 準備中
       #timer
       %form#end-call.pure-form
-        %button.pure-button.pure-button-success{:href => "#", :type => "submit"} End Call
+        %button.pure-button.pure-button-success#end_call_btn{href:"#", type:"submit",disabled:"disabled"} 通話終了
     .videochat__bottom__right
       %video#my-video{:autoplay => "", :muted => "true"}
