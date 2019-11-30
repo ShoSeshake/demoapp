@@ -1,0 +1,17 @@
+.container.dark
+  .chat-review
+    .chat-review__user
+      .chat-review__user__name
+        名前
+      .chat-review__user__icon
+        .user-icon
+      .chat-review__user__school
+        学校名
+    =form_with model: @chat_review,url:chat_chat_reviews_path, method: :post,local: true,id:"chat-review-form" do |f|
+      .chat-review__score
+        -10.times do |n| 
+          -n+=1
+          =fa_icon 'star',class:"icon-star","data-id":n
+      =f.hidden_field :score,id:"chat-review-score"
+      =f.text_area :text,id:"chat-review-text"
+      =f.submit 'レビューする',id:"chat-review-btn"

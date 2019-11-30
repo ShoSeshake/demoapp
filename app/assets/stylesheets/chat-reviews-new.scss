@@ -1,0 +1,71 @@
+.dark {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.chat-review {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    margin: auto auto;
+    background-color: white;
+    &__user {
+        padding: 10px 0;
+        text-align: center;
+        &__name {}
+        &__icon {
+            .user-icon {
+                display: block;
+                margin: 10px auto;
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                background-color: black;
+            }
+        }
+        &__school {}
+    }
+    &__score {
+        margin: 0 auto;
+        text-align: center;
+    }
+    #chat-review-text {
+        width: 90%;
+        height: 250px;
+        margin: 10px auto 0;
+        display: block;
+    }
+    #chat-review-btn {
+        font-weight: bold;
+        margin: 10px auto 0;
+        height: 50px;
+        display: block;
+        border: $orange solid 1px;
+        color: $orange;
+        font-size: 20px;
+        width: 150px;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 5px;
+        background-color: white;
+        &:hover {
+            background-color: $orange;
+            color: white;
+        }
+    }
+}
+
+#chat-review-form {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+}
+
+.icon-star {
+    letter-spacing: 5px;
+    color: grey;
+    cursor: pointer;
+}
