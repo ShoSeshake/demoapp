@@ -49,8 +49,8 @@
 
 //         endCall.on('submit', (e) => {
 //             e.preventDefault();
-//             // existingCall.close();
-//             location.href = linkUrl;
+//             existingCall.close();
+//             notification();
 //         });
 
 //         peer.on('call', (call) => {
@@ -61,9 +61,6 @@
 //         // 今回は既に接続中の場合は一旦既存の接続を切断し、後からきた接続要求を優先します。
 //         // また、切断処理等で利用するため、CallオブジェクトをexistingCallとして保持しておきます。
 //         function setupCallEventHandlers(call) {
-//             if (existingCall) {
-//                 existingCall.close();
-//             }
 
 //             existingCall = call;
 
@@ -85,6 +82,7 @@
 //             // call.close()による切断処理が実行され、実際に切断されたら発火
 //             call.on('close', () => {
 //                 removeVideo(call.remoteId);
+//                 notification();
 //             });
 //         }
 
@@ -136,11 +134,15 @@
 //             // タイムアップ後のアクションをここで定義
 //             location.href = linkUrl;
 //         }
+//         var notification = function() {
+//             $('.dark-background').fadeIn(500);
+//             setTimeout(timeUp, 3000)
+//         }
 
 //         function timer20min() {
 //             $('#timer').countdowntimer({
 //                 minutes: 20,
-//                 timeUp: timeUp,
+//                 timeUp: notification,
 //                 labels: ['Minutes', 'Seconds']
 //             });
 //         }
