@@ -2,6 +2,13 @@ class ChatsController < ApplicationController
   
   # before_action :set_chat
 
+  def new
+    @chat = Chat.new
+  end
+
+  def create
+  end
+
   def video
     @chat = Chat.find(1)
     gon.skyway_key = ENV['SKYWAY_KEY']
@@ -15,7 +22,6 @@ class ChatsController < ApplicationController
 
   def receive
     @chat = Chat.find(params[:id])
-    render 'receive.js.erb'
   end
 
   private

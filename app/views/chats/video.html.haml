@@ -1,8 +1,8 @@
 .container
   .videochat__top
+    .videochat__top__left
     #video-container.videochat__video-box
       %video#their-video{:autoplay => ""}
-      -# %video#my-video{:autoplay => "", :muted => "true"}
     .chat-box{"data-chat":@chat.id}
       .chat-box__header
         .chat-box__header__title
@@ -17,8 +17,7 @@
           =f.hidden_field :user_peer_id
           =f.submit '準備完了',id:"user_peer_btn", disabled:"disabled"
       -elsif current_user.id == @chat.adviser_id
-        %form#make-call.no-ready
-          %input{type:"hidden", id:"their-id"}
+        %form#make-call
           %button#callbtn{disabled:"disabled"} 準備中
       #timer
       %form#end-call.pure-form

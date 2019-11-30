@@ -1,16 +1,20 @@
 .container {
     width: 100vw;
     height: 100vh;
-    padding: 20px;
+    padding: 15px;
 }
 
 .videochat__top {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    &__left {
+        width: 100%;
+        background-color: lightgrey;
+    }
 }
 
 .chat-box {
-    width: 30%;
+    min-width: 360px;
     height: auto;
     border: 1px solid $orange;
     &__header {
@@ -30,44 +34,35 @@
 }
 
 #video-container {
-    width: 70%;
-    margin-right: 20px;
+    margin: 0 15px;
     position: relative;
 }
 
 #their-video {
     // position: absolute;
+    display: block;
     margin: 0 auto;
-    width: 100%;
+    width: 640px;
+    height: 480px;
     background-color: black;
-}
-
-#my-video {
-    background-color: darkgrey;
-    // on video
-    // top: 0;
-    // left: 0;
-    // position: absolute;
-    // width: 30%;
-    // right bottom
-    width: 100%;
-    margin: 0 auto;
 }
 
 .videochat__bottom {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     &__left {
-        width: 70%;
-        margin-right: 20px;
+        width: 100%;
+        margin-right: 15px;
         display: flex;
         #user_peer_btn,
         button {
             border: $orange solid 1px;
             color: $orange;
             font-size: 20px;
-            width: 100%;
-            padding: 10px 30px;
+            width: 120px;
+            text-align: center;
+            padding: 10px 0;
             border-radius: 5px;
             background-color: white;
             &:hover {
@@ -83,8 +78,22 @@
         }
     }
     &__right {
-        width: 30%;
+        width: 360px;
+        height: 270px;
     }
+}
+
+#my-video {
+    background-color: darkgrey;
+    // on video
+    // top: 0;
+    // left: 0;
+    // position: absolute;
+    // width: 30%;
+    // right bottom
+    width: 360px;
+    height: 270px;
+    margin: 0 auto;
 }
 
 #timer {
