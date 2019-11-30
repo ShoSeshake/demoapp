@@ -13,4 +13,14 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+//= require moment
 //= require fullcalendar
+$(function() {
+    function eventCalendar() {
+        return $('#calendar').fullCalendar({});
+    };
+
+    function clearCalendar() {
+        $('#calendar').html('');
+    };
+});

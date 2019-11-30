@@ -1,9 +1,3 @@
-$(function() {
-    function eventCalendar() {
-        return $('#calendar').fullCalendar({});
-    };
-
-    function clearCalendar() {
-        $('#calendar').html('');
-    };
+$(document).ready(function() {
+    $('#calendar').fullCalendar({});
 });

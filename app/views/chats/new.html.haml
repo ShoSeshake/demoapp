@@ -1,3 +1,4 @@
-=form_for model: @chat, method: :post do |f|
+#calendar
+=form_with(model: @chat, method: :post,local: true) do |f|
   =f.hidden_field :adviser_id, value:1
   =f.submit 
