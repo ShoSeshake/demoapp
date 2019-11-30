@@ -15,21 +15,18 @@ $(function() {
             dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
             //ボタンのレイアウト
             header: {
-                left: '',
-                center: 'title',
-                right: 'today prev,next'
+                left: 'prev, title',
+                right: 'next'
+
             },
             buttonText: {
-                prev: '前',
-                next: '次',
-                prevYear: '前年',
-                nextYear: '翌年',
+                prev: '<',
+                next: '>',
                 today: '今日',
                 month: '月',
                 week: '週',
                 day: '日'
             },
         });
-
     });
 });

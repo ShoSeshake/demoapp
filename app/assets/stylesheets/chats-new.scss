@@ -2,13 +2,19 @@
     width: 400px;
 }
 
-.fc-past {
+.fc-past,
+.fc-today {
     cursor: not-allowed;
     background-color: lightgrey;
-    // height: 44px;
+    height: 40px;
 }
 
 .fc-future {
     cursor: pointer;
-    // height: 44px;
+    height: 40px;
+}
+
+.fc-highlight {
+    background: $orange !important;
+    opacity: 1 !important;
 }

@@ -12,15 +12,15 @@ class ChatsController < ApplicationController
     redirect_to new_chat_path
   end
 
-  def video
-    @chat = Chat.find(1)
-    gon.skyway_key = ENV['SKYWAY_KEY']
-  end
-
   def update
     @chat = Chat.find(params[:id])
     @chat.update(chat_params)
     render 'update.js.erb'
+  end
+
+  def video
+    @chat = Chat.find(1)
+    gon.skyway_key = ENV['SKYWAY_KEY']
   end
 
   def receive
