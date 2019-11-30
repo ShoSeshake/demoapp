@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'chats#video'
   
-  resources :chats, except: [:index, :new,:create,:show,:edit,:destroy] do
+  resources :chats, except: [:index,:show,:edit,:destroy] do
     member do
       get 'video'
     end

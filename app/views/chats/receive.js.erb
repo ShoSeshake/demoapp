@@ -1,6 +1,0 @@
-<% if @chat.user_peer_id.present? %>
-$("#their-id").val("<%= @chat.user_peer_id %>")
-$("#make-call").removeClass('no-ready')
-$("#callbtn").prop("disabled", false);
-$("#callbtn").html("通話開始");
-<% end %>
