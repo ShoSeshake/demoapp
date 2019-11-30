@@ -6,7 +6,6 @@
 //         var myVideo = $('#my-video').get(0);
 //         var theirVideo = $('#their-video').get(0);
 //         var UserPeerId = $('#chat_user_peer_id');
-//         var theirId = $('#their-id');
 //         var makeCall = $('#make-call');
 //         var endCall = $('#end-call');
 
@@ -44,7 +43,7 @@
 
 //         makeCall.on('submit', (e) => {
 //             e.preventDefault();
-//             const call = peer.call(theirId.val(), localStream);
+//             const call = peer.call($('#their-id').val(), localStream);
 //             setupCallEventHandlers(call);
 //         });
 

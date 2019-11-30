@@ -1,3 +1,14 @@
 #calendar {
     width: 400px;
 }
+
+.fc-past {
+    cursor: not-allowed;
+    background-color: lightgrey;
+    // height: 44px;
+}
+
+.fc-future {
+    cursor: pointer;
+    // height: 44px;
+}

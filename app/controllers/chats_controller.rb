@@ -4,10 +4,12 @@ class ChatsController < ApplicationController
 
   def new
     @chat = Chat.new
-    
   end
 
   def create
+    @chat = Chat.new(chat_params)
+    @chat.save
+    redirect_to new_chat_path
   end
 
   def video
