@@ -20,7 +20,7 @@
         %form#make-call
           %button#callbtn{disabled:"disabled"} 準備中
       #timer
-      %form#end-call.pure-form
-        %button.pure-button.pure-button-success#end_call_btn{href:"#", type:"submit",disabled:"disabled"} 通話終了
+      =form_tag new_chat_chat_review_path(@chat), method: :get,id:"end-call" do |f|
+        = button_tag '通話終了',id:"end_call_btn",disabled:"disabled"
     .videochat__bottom__right
       %video#my-video{:autoplay => "", :muted => "true"}

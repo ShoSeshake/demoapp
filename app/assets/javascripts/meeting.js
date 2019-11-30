@@ -8,7 +8,7 @@
 //         var UserPeerId = $('#chat_user_peer_id');
 //         var makeCall = $('#make-call');
 //         var endCall = $('#end-call');
-
+//         var linkUrl = endCall.attr('action');
 
 //         // 自分の画面の表示
 //         navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -49,7 +49,8 @@
 
 //         endCall.on('submit', (e) => {
 //             e.preventDefault();
-//             existingCall.close();
+//             // existingCall.close();
+//             location.href = linkUrl;
 //         });
 
 //         peer.on('call', (call) => {
@@ -70,8 +71,11 @@
 //             // 取得したStreamオブジェクトをvideo要素にセットします。
 //             call.on('stream', (stream) => {
 //                 addVideo(call, stream);
-//                 // 文字起こし関数を呼び出し
 //                 $('#end_call_btn').prop("disabled", false);
+//                 if ($('#callbtn')) {
+//                     $('#callbtn').prop("disabled", false);
+//                 }
+//                 // 文字起こし関数を呼び出し
 
 //                 speechToText();
 //                 // 20分タイマー
@@ -130,7 +134,7 @@
 
 //         var timeUp = function() {
 //             // タイムアップ後のアクションをここで定義
-//             container.remove();
+//             location.href = linkUrl;
 //         }
 
 //         function timer20min() {
