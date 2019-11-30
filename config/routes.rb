@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     collection do
       get 'receive'
     end
+    resources :chat_reviews, only: [:new,:create]
   end
 end
