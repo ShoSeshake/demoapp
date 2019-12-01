@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_144043) do
+ActiveRecord::Schema.define(version: 2019_12_01_053544) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -44,9 +44,20 @@ ActiveRecord::Schema.define(version: 2019_11_28_144043) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
+  create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "email", null: false
     t.string "encrypted_password", null: false
+    t.integer "school_id"
+    t.boolean "adviser", default: false
     t.boolean "admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
