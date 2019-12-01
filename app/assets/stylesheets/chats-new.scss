@@ -1,5 +1,6 @@
 #calendar {
     width: 400px;
+    margin: 20px auto;
 }
 
 .fc-past,
@@ -37,4 +38,35 @@
     margin: auto auto;
     background-color: white;
     z-index: 100;
+}
+
+#chat-new-form {
+    text-align: center;
+    font-size: 0;
+    select {
+        display: none;
+    }
+}
+
+#chat-new-btn {
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    border: solid 1px $orange;
+    color: $orange;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: $orange;
+        color: white;
+    }
+}
+
+.reserve-date,
+.reserve-time {
+    text-align: center;
 }

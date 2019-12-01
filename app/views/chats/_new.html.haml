@@ -1,6 +1,23 @@
 .container.dark#chat-new-modal
 .chat-new
   #calendar
-  =form_with(model: chat,url: user_chats_path(user) ,method: :post,local: true) do |f|
+  .reserve-date
+    %span.reserve-date__year
+      =Time.now.year
+    年
+    %span.reserve-date__month
+      =Time.now.month
+    月
+    %span.reserve-date__day
+      =Time.now.day
+    日
+  .reserve-time
+    %span.reserve-date__hour
+      =Time.now.hour
+    時
+    %span.reserve-date__min
+      =Time.now.min
+    分
+  =form_with(model: chat,url: user_chats_path(user) ,method: :post,local: true,id:"chat-new-form") do |f|
     != sprintf(f.datetime_select(:start_at,use_month_numbers:true, start_year: (Time.now.year), end_year: (Time.now.year + 18), default: Time.now,date_separator:'%s'),'年','月')
-    =f.submit 
+    =f.submit '予約する', id:"chat-new-btn"

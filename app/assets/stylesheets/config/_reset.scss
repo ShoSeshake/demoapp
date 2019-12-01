@@ -183,3 +183,9 @@ textarea:focus {
 a {
     text-decoration: none;
 }
+
+select {
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

@@ -10,6 +10,9 @@ $(function() {
         $('#chat_start_at_1i').val(Number(date[0]));
         $('#chat_start_at_2i').val(Number(date[1]));
         $('#chat_start_at_3i').val(Number(date[2]));
+        $('.reserve-date__year').text(Number(date[0]));
+        $('.reserve-date__month').text(Number(date[1]));
+        $('.reserve-date__day').text(Number(date[2]));
     });
 })
 $(function() {
