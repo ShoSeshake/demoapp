@@ -11,7 +11,7 @@
       .chat-review__score
         -10.times do |n| 
           -n+=1
-          =fa_icon 'star',class:"icon-star","data-id":n
+          =icon('fas', 'star',class:'icon-star',"data-id":n)
       =f.hidden_field :score,id:"chat-review-score"
       =f.text_area :text,id:"chat-review-text"
       =f.submit 'レビューする',id:"chat-review-btn"

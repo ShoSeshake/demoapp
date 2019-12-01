@@ -15,9 +15,7 @@ $(function() {
             dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
             //ボタンのレイアウト
             header: {
-                left: 'prev, title',
-                right: 'next'
-
+                left: 'title'
             },
             buttonText: {
                 prev: '<',

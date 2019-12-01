@@ -16,5 +16,6 @@ class User < ApplicationRecord
     validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
     validates :name, :email, :password, :password_confirmation, presence: true
     validates :school, presence: true, if: :adviser?
+    validates :school, presence: false, unless: :adviser?
     
 end

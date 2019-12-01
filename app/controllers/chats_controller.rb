@@ -1,17 +1,19 @@
 class ChatsController < ApplicationController
   require 'time'
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
+  before_action :set_user, only: [:new,:create]
   before_action :set_chat, only: [:update, :video, :recieve]
   before_action :chat_check, only: [:update, :video, :recieve]
 
   def new
     @chat = Chat.new
+    render 'new.js.erb'
   end
 
   def create
     date = Date.today
     @chat = Chat.new(chat_params)
-    if @chat.start_at < date
+    if @chat.start_at < date.tomorrow
       redirect_to new_chat_path, alert: '明日以降の日程で指定してください'
     elsif @chat.save
       redirect_to new_chat_path, notice: '予約が完了しました'
@@ -35,6 +37,10 @@ class ChatsController < ApplicationController
   private
   def set_chat
     @chat = Chat.find(params[:id])
+  end
+
+  def set_user
+    @user = User(params[:user_id])
   end
 
   def chat_check 

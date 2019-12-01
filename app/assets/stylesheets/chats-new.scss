@@ -18,3 +18,15 @@
     background: $orange !important;
     opacity: 1 !important;
 }
+
+.chat-new {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    margin: auto auto;
+    background-color: white;
+}

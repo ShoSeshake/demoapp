@@ -1,0 +1,35 @@
+.header
+  .header__left
+    =link_to root_path do
+      .logo
+        Logo
+  .header__center
+    =form_with(url: search_schools_path, local: :true, method: :get) do |f|
+      =f.text_field :keyword,id:"header-search-form",placeholder:"学校を検索する...",autocomplete:"off"
+      = button_tag type: 'submit', id:"header-search-btn"  do
+        =icon('fas', 'search')
+  %ul.header__right
+    -# %li.header__right__list
+    -#   =link_to root_path, class:"header-links" do
+    -#     トップ
+    -if user_signed_in?
+      -# %li.header__right__list
+      -#   =link_to destroy_user_session_path,method: :delete, class:"header-links" do
+      -#     ログアウト
+      %li.header__right__list
+        .header-links
+          =icon('fas', 'bell',class:'icon-bell')
+      %li.header__right__list
+        =link_to user_path(current_user), class:"header-links" do
+          =icon('fas', 'user',class:'icon-user')
+      -if current_user.admin?
+        %li.header__right__list
+          =link_to rails_admin_path, class:"header-links" do
+            =icon('fas', 'users-cog',class:'icon-admin')
+    -else
+      %li.header__right__list
+        =link_to user_session_path, class:"header-links" do
+          ログイン
+      %li.header__right__list
+        =link_to new_user_registration_path, class:"header-links" do
+          新規登録

@@ -83,7 +83,7 @@ gem 'mini_magick'
 # haml用
 gem 'haml-rails'
 # font-awesome
-gem 'font-awesome-rails'
+# gem 'font-awesome-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
 # ユーザー機能
 gem 'devise'

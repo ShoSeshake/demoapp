@@ -2,9 +2,19 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users
-  root to: 'chats#new'
+  root to: 'schools#index'
+
+  resources :schools, only: [:index, :show] do
+    collection do
+      get 'search'
+    end
+  end
   
-  resources :chats, except: [:index,:show,:edit,:destroy] do
+  resources :users, only: [:show] do
+    resources :chats,only: [:new,:create] do
+  end
+
+  resources :chats, only: [:update] do
     member do
       get 'video'
     end
