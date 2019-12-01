@@ -14,11 +14,11 @@ class ChatsController < ApplicationController
     date = Date.today
     @chat = Chat.new(chat_params)
     if @chat.start_at < date.tomorrow
-      redirect_to new_chat_path, alert: '明日以降の日程で指定してください'
+      redirect_to user_path(@user), alert: '明日以降の日程で指定してください'
     elsif @chat.save
-      redirect_to new_chat_path, notice: '予約が完了しました'
+      redirect_to user_path(@user), notice: "予約が完了しました。#{@chat.start_at}からです"
     else
-      redirect_to new_chat_path, alert: '予約できませんでした'
+      redirect_to user_path(@user), alert: '予約できませんでした'
     end
   end
 
@@ -40,7 +40,7 @@ class ChatsController < ApplicationController
   end
 
   def set_user
-    @user = User(params[:user_id])
+    @user = User.find(params[:user_id])
   end
 
   def chat_check 
@@ -56,10 +56,9 @@ class ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(
-      :adviser_id,
       :adviser_peer_id,
       :user_peer_id,
       :start_at
-    ).merge(user_id: current_user.id)    
+    ).merge(user_id: current_user.id, adviser_id: @user.id)
   end
 end

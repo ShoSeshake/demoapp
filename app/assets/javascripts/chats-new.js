@@ -12,3 +12,14 @@ $(function() {
         $('#chat_start_at_3i').val(Number(date[2]));
     });
 })
+$(function() {
+    $(document).on('click', '#chat-new-modal', function() {
+        var removeModal = function() {
+            $('#chat-new-modal').remove();
+            $('.chat-new').remove();
+        }
+        $(this).fadeOut(500);
+        $('.chat-new').fadeOut(500);
+        setTimeout(removeModal, 700);
+    })
+})

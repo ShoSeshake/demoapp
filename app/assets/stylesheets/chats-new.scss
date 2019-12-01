@@ -19,6 +19,13 @@
     opacity: 1 !important;
 }
 
+#chat-new-modal {
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 50;
+}
+
 .chat-new {
     position: absolute;
     top: 0;
@@ -29,4 +36,5 @@
     height: 600px;
     margin: auto auto;
     background-color: white;
+    z-index: 100;
 }

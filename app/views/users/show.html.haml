@@ -72,7 +72,7 @@
         .side-bar__sns__youtube
           =icon('fab','youtube',class:"icon-youtube")
       -if @user.adviser?
-        =button_tag 'この人の話を聞きたい', class:"side-bar__chat-btn"
+        =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
         .side-bar__availability
           %span.side-bar__availability__title
             チャット可能時間

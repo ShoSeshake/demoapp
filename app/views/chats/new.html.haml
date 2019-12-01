@@ -1,5 +1,0 @@
-#calendar
-=form_with(model: @chat, method: :post,local: true) do |f|
-  =f.hidden_field :adviser_id, value:1
-  != sprintf(f.datetime_select(:start_at,use_month_numbers:true, start_year: (Time.now.year), end_year: (Time.now.year + 18), default: Time.now,date_separator:'%s'),'年','月')
-  =f.submit 

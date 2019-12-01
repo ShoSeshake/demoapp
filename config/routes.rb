@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show] do
-    resources :chats,only: [:new,:create] do
+    resources :chats,only: [:new,:create]
   end
 
   resources :chats, only: [:update] do
