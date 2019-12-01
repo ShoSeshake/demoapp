@@ -1,7 +1,8 @@
 class ChatsController < ApplicationController
   require 'time'
 
-  # before_action :set_chat, only: [:update, :video, :recieve]
+  before_action :set_chat, only: [:update, :video, :recieve]
+  before_action :chat_check, only: [:update, :video, :recieve]
 
   def new
     @chat = Chat.new
@@ -14,18 +15,15 @@ class ChatsController < ApplicationController
   end
 
   def update
-    @chat = Chat.find(params[:id])
     @chat.update(chat_params)
     render 'update.js.erb'
   end
 
   def video
-    @chat = Chat.find(params[:id])
     gon.skyway_key = ENV['SKYWAY_KEY']
   end
 
   def receive
-    @chat = Chat.find(params[:id])
   end
 
   private
@@ -35,9 +33,10 @@ class ChatsController < ApplicationController
 
   def chat_check 
     date = Time.now 
-    entry_time = @chat.start_at.to_datetime - Rational(5,24*60)
-    if entry_time > date
-      redirect_tp '/admin'
+    open_time = @chat.start_at.to_datetime - Rational(5,24*60)
+    close_time = @chat.start_at.to_datetime + Rational(30,24*60)
+    if open_time > date || close_time < date
+      redirect_to '/admin'
     end
   end
 
