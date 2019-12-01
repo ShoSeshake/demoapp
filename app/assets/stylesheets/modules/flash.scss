@@ -1,0 +1,19 @@
+.notification {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    .notice {
+        padding: 10px 0px;
+        background-color: lightblue;
+        color: white;
+        text-align: center;
+    }
+    .alert {
+        padding: 10px 0px;
+        background-color: rgb(212, 93, 93);
+        color: white;
+        text-align: center;
+    }
+}
