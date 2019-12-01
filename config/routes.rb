@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users
-  root to: 'chats#video'
+  root to: 'chats#new'
   
   resources :chats, except: [:index,:show,:edit,:destroy] do
     member do
