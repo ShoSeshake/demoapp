@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   require 'time'
-
+  # before_action :authenticate_user!
   before_action :set_chat, only: [:update, :video, :recieve]
   before_action :chat_check, only: [:update, :video, :recieve]
 

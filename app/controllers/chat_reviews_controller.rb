@@ -1,5 +1,5 @@
 class ChatReviewsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_chat
 
   def new
@@ -9,10 +9,10 @@ class ChatReviewsController < ApplicationController
   def create
     @chat_review = ChatReview.new(chat_review_params)
     if @chat_review.save
-      redirect_to '/'
+      redirect_to root_path, notice: 'レビューのご記入ありがとうございました'
     else
       @chat_review = ChatReview.new
-      render :new
+      render :new, alert: 'レビューの記入をお願いします'
     end
   end
 
