@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_053544) do
+ActiveRecord::Schema.define(version: 2019_12_01_060137) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -44,12 +44,27 @@ ActiveRecord::Schema.define(version: 2019_12_01_053544) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
+  create_table "merits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
     t.integer "location_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "schools_merits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "school_id", null: false
+    t.bigint "merit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["merit_id"], name: "index_schools_merits_on_merit_id"
+    t.index ["school_id"], name: "index_schools_merits_on_school_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,4 +88,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_053544) do
   add_foreign_key "chat_reviews", "users"
   add_foreign_key "chats", "users"
   add_foreign_key "chats", "users", column: "adviser_id"
+  add_foreign_key "schools_merits", "merits"
+  add_foreign_key "schools_merits", "schools"
 end
