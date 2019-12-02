@@ -19,3 +19,36 @@
 .image-3 {
     background: radial-gradient(rgb(253, 97, 253), rgb(224, 199, 224));
 }
+
+.slick {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.index {
+    padding-bottom: 30px;
+    margin: 0 auto;
+    width: 800px;
+    &__title {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    &__top-box {
+        display: flex;
+        &__image {
+            margin-right: 20px;
+            height: 300px;
+            min-width: 300px;
+            background-color: black;
+            text-align: center;
+            line-height: 300px;
+            color: white;
+        }
+        &__description {
+            width: auto;
+            word-break: break-all;
+        }
+    }
+}

@@ -34,7 +34,9 @@ html {
 
 *,
 *:before,
-*:after {
+*:after,
+*:focus {
+    outline: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
