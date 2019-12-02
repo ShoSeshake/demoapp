@@ -34,6 +34,10 @@
         margin-bottom: 30px;
         padding-bottom: 30px;
         border-bottom: 1px solid lightgrey;
+        &:last-child {
+            margin-bottom: 0px;
+            border-bottom: none;
+        }
         &__title {
             text-align: center;
             font-size: 30px;
@@ -62,13 +66,13 @@
             &__adviser {
                 width: 250px;
                 &__image {
-                    .schoo-image-index,
+                    .school-image-index,
                     .adviser-image-index {
                         height: 150px;
                         width: 150px;
                         border-radius: 50%;
                         margin: 0 auto 10px;
-                        background-color: black;
+                        background: radial-gradient(rgb(255, 164, 60), rgb(255, 250, 221));
                         color: white;
                     }
                 }
