@@ -47,7 +47,9 @@ class ChatsController < ApplicationController
     date = Time.now 
     open_time = @chat.start_at.to_datetime - Rational(5,24*60)
     close_time = @chat.start_at.to_datetime + Rational(30,24*60)
-    if open_time > date 
+    if current_user != @chat.user && current_user != @chat.adviser
+      redirect_to root_path, alert: 'この部屋に入ることはできません'
+    elsif open_time > date 
       redirect_to root_path, alert: 'チャットルームは5分前に開きます'
     elsif close_time < date
       redirect_to root_path, alert: 'チャットルームは既に閉じています'

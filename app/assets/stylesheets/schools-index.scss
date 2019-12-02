@@ -30,25 +30,76 @@
     padding-bottom: 30px;
     margin: 0 auto;
     width: 800px;
-    &__title {
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-    &__top-box {
-        display: flex;
-        &__image {
-            margin-right: 20px;
-            height: 300px;
-            min-width: 300px;
-            background-color: black;
+    &__box {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid lightgrey;
+        &__title {
             text-align: center;
-            line-height: 300px;
-            color: white;
+            font-size: 30px;
+            margin-bottom: 20px;
         }
-        &__description {
-            width: auto;
-            word-break: break-all;
+        &__top {
+            display: flex;
+            &__image {
+                margin-right: 20px;
+                height: 300px;
+                min-width: 300px;
+                background-color: black;
+                text-align: center;
+                line-height: 300px;
+                color: white;
+            }
+            &__description {
+                width: auto;
+                word-break: break-all;
+            }
         }
+        &__flex {
+            display: flex;
+            justify-content: space-between;
+            &__school,
+            &__adviser {
+                width: 250px;
+                &__image {
+                    .schoo-image-index,
+                    .adviser-image-index {
+                        height: 150px;
+                        width: 150px;
+                        border-radius: 50%;
+                        margin: 0 auto 10px;
+                        background-color: black;
+                        color: white;
+                    }
+                }
+                &__name {
+                    margin: 15px 0;
+                    text-align: center;
+                }
+                &__text {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+a.index-user-links,
+a.index-school-links {
+    color: $orange;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    &:after {
+        content: '';
+        border-bottom: 1px $orange solid;
+        position: absolute;
+        width: 0;
+        transition: width 0.5s;
+        bottom: 0;
+        left: 0;
+    }
+    &:hover:after {
+        width: 100%;
     }
 }

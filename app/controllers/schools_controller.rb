@@ -4,6 +4,7 @@ class SchoolsController < ApplicationController
 
   def index
     @schools = School.all
+    @advisers = User.where(adviser: true).limit(10)
   end
   
   def show

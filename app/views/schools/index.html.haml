@@ -8,15 +8,42 @@
     .index-background-image.image-3
       Back Ground Image
   .index
-    .index__title
-      サイト名  タイトル
-    .index__top-box
-      .index__top-box__image
-        Image
-      .index__top-box__description
-        説明文は、ある出来事や情報をよく知っている人間が、それらをよく知らない 人たちに説明をしようとして書いた文章です。
-        %br ですから、説明文を読み取るとい うことは、その作者が何について、どのように、説明している文章かを把握する ことが大切です。 論説文も同じです。 筆者が主張したいことは何かを読み取るこ とが中心です。
-    .index__middle-box
--# %button#btn
--#   a
--# #content
+    .index__box
+      .index__box__title
+        サイト名  タイトル
+      .index__box__top
+        .index__box__top__image
+          Image
+        .index__box__top__description
+          説明文は、ある出来事や情報をよく知っている人間が、それらをよく知らない 人たちに説明をしようとして書いた文章です。
+          %br ですから、説明文を読み取るとい うことは、その作者が何について、どのように、説明している文章かを把握する ことが大切です。 論説文も同じです。 筆者が主張したいことは何かを読み取るこ とが中心です。
+    .index__box
+      .index__box__title
+        おすすめの学校
+      .index__box__flex
+        -@schools.limit(3).each do |s|
+          .index__box__flex__school
+            .index__box__flex__school__image
+              =link_to school_path(s) do
+                .schoo-image-index
+            .index__box__flex__school__name
+              =link_to school_path(s), class:"index-school-links" do
+                School Name
+            .index__box__flex__school__text
+              Scholl Description
+    .index__box
+      .index__box__title
+        人気アドバイザー
+      .index__box__flex
+        -@advisers.each do |adviser|
+          .index__box__flex__adviser
+            .index__box__flex__adviser__image
+              =link_to user_path(adviser) do
+                .schoo-image-index
+            .index__box__flex__adviser__name
+              =link_to user_path(adviser), class:"index-user-links" do
+                =adviser.name
+            .index__box__flex__adviser__text
+              =link_to school_path(adviser.school), class:"index-user-links" do
+                =adviser.school.name
+= render "shared/footer"

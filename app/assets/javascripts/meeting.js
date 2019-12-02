@@ -78,7 +78,6 @@ $(function() {
                     $('#callbtn').prop("disabled", false);
                 }
                 // 文字起こし関数を呼び出し
-
                 speechToText();
                 // 20分タイマー
                 timer20min();
