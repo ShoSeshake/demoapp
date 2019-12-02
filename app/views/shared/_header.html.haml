@@ -16,7 +16,7 @@
       -# %li.header__right__list
       -#   =link_to destroy_user_session_path,method: :delete, class:"header-links" do
       -#     ログアウト
-      %li.header__right__list
+      %li.header__right__list#notification-bell
         .header-links
           =icon('fas', 'bell',class:'icon-bell')
       %li.header__right__list
@@ -33,3 +33,19 @@
       %li.header__right__list
         =link_to new_user_registration_path, class:"header-links" do
           新規登録
+-if user_signed_in?
+  .header-notification
+    .header-notification__delete
+      .header-notification__delete__btn
+        ×
+    .header-notification__content
+      - if @coming_chats
+        -@coming_chats.each do |c|
+          .header-notification__content__box
+            =c.start_at
+            から
+            %br
+            = current_user.adviser ? c.user.name : c.adviser.name
+            とチャットの予定があります
+      - else
+        チャットの予定はございません

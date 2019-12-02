@@ -1,4 +1,7 @@
 class SchoolsController < ApplicationController
+
+  before_action :header_menu
+
   def index
     @schools = School.all
   end

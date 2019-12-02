@@ -94,3 +94,34 @@
 .icon-bell {
     font-size: 25px;
 }
+
+.header-notification {
+    display: none;
+    top: 70px;
+    right: 15px;
+    overflow: scroll;
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    background-color: rgb(255, 250, 238);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 10px 20px 10px;
+    z-index: 150;
+    &__delete {
+        text-align: right;
+        margin-bottom: 10px;
+        &__btn {
+            font-size: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+    &__content {
+        &__box {
+            border-bottom: 1px dashed lightgrey;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+    }
+}
