@@ -137,5 +137,22 @@
             padding-bottom: 5px;
             margin-bottom: 5px;
         }
+        &__rush {
+            background-color: $orange;
+            padding: 10px;
+            margin-bottom: 5px;
+            .emergencry-chat {
+                color: white;
+                .icon-exclamation {
+                    font-size: 30px;
+                    text-align: center;
+                    display: block;
+                    margin: 5px auto;
+                }
+            }
+        }
+        &__rush.emergency {
+            background-color: red;
+        }
     }
 }

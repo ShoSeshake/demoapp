@@ -22,21 +22,27 @@
         おすすめの学校
       .index__box__flex
         -@schools.limit(3).each do |s|
-          .index__box__flex__school
+          .index__box__flex__school{"data-school":s.id}
             .index__box__flex__school__image
               =link_to school_path(s) do
                 .school-image-index
             .index__box__flex__school__name
               =link_to school_path(s), class:"index-school-links" do
                 School Name
-            .index__box__flex__school__text
-              Scholl Description
+      -@schools.limit(3).each do |s|
+        .index__box__introduction.school-introduction{id:"school-description-#{s.id}"}
+          .index__box__introduction__text
+            =s.description
+          .index__box__introduction__merits
+            -s.merits.each do |m|
+              =m.title
+              \/
     .index__box
       .index__box__title
         人気アドバイザー
       .index__box__flex
         -@advisers.each do |adviser|
-          .index__box__flex__adviser
+          .index__box__flex__adviser{"data-adviser":adviser.id}
             .index__box__flex__adviser__image
               =link_to user_path(adviser) do
                 .adviser-image-index
@@ -46,4 +52,8 @@
             .index__box__flex__adviser__text
               =link_to school_path(adviser.school), class:"index-user-links" do
                 =adviser.school.name
+      -@advisers.limit(3).each do |a|
+        .index__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
+          .index__box__introduction__text
+            プロフィールを表示
 = render "shared/footer"

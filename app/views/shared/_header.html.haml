@@ -38,11 +38,34 @@
     .header-notification__content
       - if @coming_chats.present?
         -@coming_chats.each do |c|
-          .header-notification__content__box
-            =c.start_at
-            から
-            %br
-            = current_user.adviser ? c.user.name : c.adviser.name
-            とチャットの予定があります
+          -if c.start_at < Time.now
+            .header-notification__content__rush.emergency
+              =link_to video_chat_path(c), class:"emergencry-chat" do
+                =icon('fas','exclamation-triangle',class:"icon-exclamation")
+                =c.start_at
+                から
+                %br
+                = current_user.adviser ? c.user.name : c.adviser.name
+                とチャットの時間です
+                %br
+                今すぐに準備をお願いします
+          -elsif  c.start_at.to_datetime < Time.now.to_datetime + Rational(5,24*60)
+            .header-notification__content__rush
+              =link_to video_chat_path(c), class:"emergencry-chat" do
+                =icon('fas','exclamation-triangle',class:"icon-exclamation")
+                =c.start_at
+                から
+                %br
+                = current_user.adviser ? c.user.name : c.adviser.name
+                とチャットの時間です
+                %br
+                現在 入室可能です
+          -else
+            .header-notification__content__box
+              =c.start_at
+              から
+              %br
+              = current_user.adviser ? c.user.name : c.adviser.name
+              とチャットの予定があります
       - else
         チャットの予定はございません

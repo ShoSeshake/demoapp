@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_060137) do
+ActiveRecord::Schema.define(version: 2019_12_02_123013) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 2019_12_01_060137) do
     t.text "text", null: false
     t.bigint "chat_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "reviewee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_chat_reviews_on_chat_id"
+    t.index ["reviewee_id"], name: "index_chat_reviews_on_reviewee_id"
     t.index ["user_id"], name: "index_chat_reviews_on_user_id"
   end
 
@@ -48,6 +50,17 @@ ActiveRecord::Schema.define(version: 2019_12_01_060137) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.boolean "availability", default: false
+    t.integer "day", null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
   create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,6 +83,10 @@ ActiveRecord::Schema.define(version: 2019_12_01_060137) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
+    t.string "icon", null: false
+    t.string "background_image"
+    t.text "profile", null: false
+    t.integer "ticket"
     t.string "encrypted_password", null: false
     t.integer "school_id"
     t.boolean "adviser", default: false
@@ -86,8 +103,10 @@ ActiveRecord::Schema.define(version: 2019_12_01_060137) do
   add_foreign_key "blogs", "users"
   add_foreign_key "chat_reviews", "chats"
   add_foreign_key "chat_reviews", "users"
+  add_foreign_key "chat_reviews", "users", column: "reviewee_id"
   add_foreign_key "chats", "users"
   add_foreign_key "chats", "users", column: "adviser_id"
+  add_foreign_key "schedules", "users"
   add_foreign_key "schools_merits", "merits"
   add_foreign_key "schools_merits", "schools"
 end

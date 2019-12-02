@@ -1,13 +1,14 @@
 =render 'shared/header'
 .wrapper
-  .user-background-image
-    Back Ground Image
+  .user-background
+    .user-background__image{"style":"background-image:url(#{@user.background_image.url});"}
+    =image_tag "#{@user.background_image.url}",class:"user-bg-image"
   .flex-wrapper 
     .main
       .main__profile
         .main__profile__top
           .main__profile__top__icon
-            Image
+            =image_tag "#{@user.icon.url}",class:"user-icon"
           .main__profile__top__box
             .main__profile__top__box__name
               =@user.name
@@ -16,8 +17,7 @@
                 =link_to school_path(@user.school),class:"user-school-link" do
                   =@user.school.name
         .main__profile__text
-          毎日太郎と申します。前職では、飲料メーカーのマーケティング職としてキャンペーンの企画やランディングページのディレクションに携わってまいりました。「◯◯キャンペーン」では前年比120％の応募数を獲得し、社内表彰を受賞しました。
-          今後は、自社のマーケティングだけでなく、幅広い業種のマーケティングに挑戦していきたいと思い、キャンペーン企画を強みに多様な企業をクライアントとして持つ御社に応募させていただきました。本日はどうぞよろしくお願いいたします。
+          =@user.profile
         -# .main__profile__availability
         -#   %span.main__profile__availability__title
         -#     チャット可能時間
@@ -99,18 +99,16 @@
             %span.side-bar__availability__title
               チャット可能時間
             %ul.side-bar__availability__chat
-              %li.side-bar__availability__chat__list
-                月 : 19 - 21
-              %li.side-bar__availability__chat__list
-                火 : 19 - 21
-              %li.side-bar__availability__chat__list
-                水 : 19 - 21
-              %li.side-bar__availability__chat__list
-                木 : 19 - 21
-              %li.side-bar__availability__chat__list
-                金 : 19 - 21
-              %li.side-bar__availability__chat__list
-                土 : 19 - 21
-              %li.side-bar__availability__chat__list
-                日 : 19 - 21
+              -@user.schedules.each do |s|
+                %li.side-bar__availability__chat__list
+                  -if s.availability?
+                    =s.day
+                    \: 
+                    =s.start_time.strftime('%H:%M')
+                    \- 
+                    =s.end_time.strftime('%H:%M')
+                  -else
+                    =s.day
+                    \: 
+                    なし
 =render "shared/footer"

@@ -7,6 +7,7 @@ class ChatReviewsController < ApplicationController
   end
 
   def create
+    @reviewee = (current_user == @chat.user ? @chat.adviser : @chat.user )
     @chat_review = ChatReview.new(chat_review_params)
     if @chat_review.save
       redirect_to root_path, notice: 'レビューのご記入ありがとうございました'
@@ -21,7 +22,10 @@ class ChatReviewsController < ApplicationController
     params.require(:chat_review).permit(
       :score,
       :text
-    ).merge(user_id: current_user.id,chat_id: @chat.id)
+    ).merge(user_id: current_user.id,
+            chat_id: @chat.id,
+            reviewee_id: @reviewee.id
+          )
   end
 
   def set_chat

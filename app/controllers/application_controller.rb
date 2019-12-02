@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,  keys: [:name,:school_id, :adviser, :admin])
+    devise_parameter_sanitizer.permit(:sign_up,  keys: [:name,:icon, :background_image,:profile,:ticket, :school_id, :adviser, :admin])
   end 
 
   def header_menu

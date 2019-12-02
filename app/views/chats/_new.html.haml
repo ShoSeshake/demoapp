@@ -1,6 +1,16 @@
 .container.dark#chat-new-modal
 .chat-new
   #calendar
+  .chat-new__time
+    -user.schedules.each do |s|
+      =s.day
+      -time = s.start_time
+      -while true do
+        -if s.start_time == s.end_time - Rational(30,24*60)
+          -return false
+        -else
+          =s.start_time.strftime('%H:%M')
+          -time = s.start_time + Rational(30,24*60)
   .reserve-date
     %span.reserve-date__year
       =Time.now.year

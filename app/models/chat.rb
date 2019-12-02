@@ -5,5 +5,5 @@ class Chat < ApplicationRecord
 
   validates :start_at, presence: true
 
-  scope :incoming,  -> { where('start_at > ?', Time.zone.now) }
+  scope :incoming,  -> { where('start_at > ?', Time.zone.now.to_datetime - Rational(20,24*60)) }
 end
