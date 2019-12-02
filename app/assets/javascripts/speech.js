@@ -1,4 +1,5 @@
 // $(function() {
+
 //     SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 //     const speech = new SpeechRecognition();
 //     speech.lang = 'ja-JP';
@@ -17,16 +18,16 @@
 
 
 //     speech.onresult = (event) => {
-//         let interimTranscript = ''; // 暫定(灰色)の認識結果
 //         for (let i = event.resultIndex; i < event.results.length; i++) {
 //             let transcript = event.results[i][0].transcript;
 //             if (event.results[i].isFinal) {
-//                 finalTranscript += transcript;
-//             } else {
-//                 interimTranscript = transcript;
+//                 var message = document.createElement("div");
+//                 message.setAttribute("class", "video-message");
+
+//                 message.innerHTML = transcript;
+//                 content.appendChild(message);
 //             }
 //         }
-//         content.innerHTML = finalTranscript + '<i style="color:#ddd;">' + interimTranscript + '</i>';
 //     }
 
 // })

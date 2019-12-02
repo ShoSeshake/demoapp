@@ -17,6 +17,7 @@
     min-width: 360px;
     height: auto;
     border: 1px solid $orange;
+    height: 480px;
     &__header {
         display: flex;
         justify-content: space-between;
@@ -30,7 +31,14 @@
     }
     &__body {
         overflow: scroll;
+        height: 430px;
     }
+}
+
+.video-message {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-bottom: 1px dashed lightgrey;
 }
 
 #video-container {
@@ -39,7 +47,6 @@
 }
 
 #their-video {
-    // position: absolute;
     display: block;
     margin: 0 auto;
     width: 640px;

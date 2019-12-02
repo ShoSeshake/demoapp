@@ -91,8 +91,8 @@
         .side-bar__sns__youtube
           =icon('fab','youtube',class:"icon-youtube")
       -if @user.adviser?
-        -if current_user != @user
-          =button_to '記事を書く', 
+        -if current_user == @user
+          =button_to '記事を書く', new_blog_path, method: :get,class:"side-bar__blog-btn"
         -else
           =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
           .side-bar__availability
