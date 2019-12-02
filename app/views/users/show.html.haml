@@ -54,13 +54,32 @@
       -if @user.adviser?
         .main__blog
           .main__blog__title
-            最新のブログ
+            最新のブログ記事
           %ul.main__blog__all
             %li.main__blog__all__list
-              
+              .main__blog__all__list__top
+                %h4.main__blog__all__list__top__title
+                  タイトル
+                %h6.main__blog__all__list__top__time
+                  =Time.now
+              %p.main__blog__all__list__text
+                ブログの本文を表示
             %li.main__blog__all__list
+              .main__blog__all__list__top
+                %h4.main__blog__all__list__top__title
+                  タイトル
+                %h6.main__blog__all__list__top__time
+                  =Time.now
+              %p.main__blog__all__list__text
+                ブログの本文を表示
             %li.main__blog__all__list
-
+              .main__blog__all__list__top
+                %h4.main__blog__all__list__top__title
+                  タイトル
+                %h6.main__blog__all__list__top__time
+                  =Time.now
+              %p.main__blog__all__list__text
+                ブログの本文を表示
     .side-bar
       .side-bar__sns
         .side-bar__sns__twitter

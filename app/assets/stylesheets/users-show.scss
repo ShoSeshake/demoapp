@@ -100,6 +100,32 @@
         &__title {
             font-size: 25px;
         }
+        &__all {
+            &__list {
+                border-bottom: 1px dashed lightgrey;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                &:last-child {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                }
+                &__top {
+                    margin: 10px 0;
+                    display: flex;
+                    justify-content: space-between;
+                    &__title {
+                        font-size: 20px;
+                    }
+                    &__time {
+                        font-size: 16px;
+                    }
+                }
+                &__text {
+                    font-size: 18px;
+                }
+            }
+        }
     }
 }
 
@@ -112,28 +138,40 @@
         display: flex;
         justify-content: space-between;
         &__twitter {
-            font-size: 50px;
-            height: 50px;
-            width: 50px;
+            font-size: 40px;
+            height: 40px;
+            width: 40px;
             color: #1CA1F2;
+            &:hover {
+                opacity: 0.7;
+            }
         }
         &__facebook {
-            font-size: 50px;
-            height: 50px;
-            width: 50px;
+            font-size: 40px;
+            height: 40px;
+            width: 40px;
             color: #273E6B;
+            &:hover {
+                opacity: 0.7;
+            }
         }
         &__instagram {
-            font-size: 50px;
-            height: 50px;
-            width: 50px;
+            font-size: 40px;
+            height: 40px;
+            width: 40px;
             color: brown;
+            &:hover {
+                opacity: 0.7;
+            }
         }
         &__youtube {
-            font-size: 50px;
-            height: 50px;
-            width: 50px;
+            font-size: 40px;
+            height: 40px;
+            width: 40px;
             color: #FF0000;
+            &:hover {
+                opacity: 0.7;
+            }
         }
     }
     &__chat-btn {
