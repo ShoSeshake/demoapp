@@ -9,9 +9,6 @@
       = button_tag type: 'submit', id:"header-search-btn"  do
         =icon('fas', 'search')
   %ul.header__right
-    -# %li.header__right__list
-    -#   =link_to root_path, class:"header-links" do
-    -#     トップ
     -if user_signed_in?
       -# %li.header__right__list
       -#   =link_to destroy_user_session_path,method: :delete, class:"header-links" do
@@ -39,7 +36,7 @@
       .header-notification__delete__btn
         ×
     .header-notification__content
-      - if @coming_chats
+      - if @coming_chats.present?
         -@coming_chats.each do |c|
           .header-notification__content__box
             =c.start_at

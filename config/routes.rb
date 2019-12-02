@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :chats,only: [:new,:create]
   end
 
+  resources :blogs
+
   resources :chats, only: [:update] do
     member do
       get 'video'

@@ -2,8 +2,8 @@ class ChatsController < ApplicationController
   require 'time'
   before_action :authenticate_user!
   before_action :set_user, only: [:new,:create]
-  before_action :set_chat, only: [:update, :video, :recieve]
-  before_action :chat_check, only: [:update, :video, :recieve]
+  before_action :set_chat, only: [:update, :video, :receive]
+  before_action :chat_check, only: [:update, :video, :receive]
 
   def new
     @chat = Chat.new
@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
   end
 
   def update
-    @chat.update(chat_params)
+    @chat.update(update_params)
     render 'update.js.erb', notice: '準備が完了しました'
   end
 
@@ -60,5 +60,11 @@ class ChatsController < ApplicationController
       :user_peer_id,
       :start_at
     ).merge(user_id: current_user.id, adviser_id: @user.id)
+  end
+
+  def update_params
+    params.require(:chat).permit(
+      :user_peer_id
+    )
   end
 end

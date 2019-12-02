@@ -91,29 +91,25 @@
         .side-bar__sns__youtube
           =icon('fab','youtube',class:"icon-youtube")
       -if @user.adviser?
-        =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
-        .side-bar__availability
-          %span.side-bar__availability__title
-            チャット可能時間
-          %ul.side-bar__availability__chat
-            %li.side-bar__availability__chat__list
-              月 : 19 - 21
-            %li.side-bar__availability__chat__list
-              火 : 19 - 21
-            %li.side-bar__availability__chat__list
-              水 : 19 - 21
-            %li.side-bar__availability__chat__list
-              木 : 19 - 21
-            %li.side-bar__availability__chat__list
-              金 : 19 - 21
-            %li.side-bar__availability__chat__list
-              土 : 19 - 21
-            %li.side-bar__availability__chat__list
-              日 : 19 - 21
-
-      -# - if @user.adviser?
-      -#   #calendar
-      -#   =form_with(model: @chat, method: :post,local: true) do |f|
-      -#     =f.hidden_field :adviser_id, value:@user.id
-      -#     != sprintf(f.datetime_select(:start_at, use_month_numbers:true, start_year: (Time.now.year), end_year: (Time.now.year + 18), default: Date.tomorrow, date_separator:'%s'),'年','月')
-      -#     =f.submit 
+        -if current_user != @user
+          =button_to '記事を書く', 
+        -else
+          =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
+          .side-bar__availability
+            %span.side-bar__availability__title
+              チャット可能時間
+            %ul.side-bar__availability__chat
+              %li.side-bar__availability__chat__list
+                月 : 19 - 21
+              %li.side-bar__availability__chat__list
+                火 : 19 - 21
+              %li.side-bar__availability__chat__list
+                水 : 19 - 21
+              %li.side-bar__availability__chat__list
+                木 : 19 - 21
+              %li.side-bar__availability__chat__list
+                金 : 19 - 21
+              %li.side-bar__availability__chat__list
+                土 : 19 - 21
+              %li.side-bar__availability__chat__list
+                日 : 19 - 21
