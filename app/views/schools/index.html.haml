@@ -28,7 +28,7 @@
                 .school-image-index
             .index__box__flex__school__name
               =link_to school_path(s), class:"index-school-links" do
-                School Name
+                =s.name
       -@schools.limit(3).each do |s|
         .index__box__introduction.school-introduction{id:"school-description-#{s.id}"}
           .index__box__introduction__text
@@ -55,5 +55,5 @@
       -@advisers.limit(3).each do |a|
         .index__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
           .index__box__introduction__text
-            プロフィールを表示
+            =simple_format(a.profile)
 = render "shared/footer"

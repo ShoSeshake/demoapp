@@ -1,8 +1,11 @@
 =render 'shared/header'
 .wrapper
-  .user-background
-    .user-background__image{"style":"background-image:url(#{@user.background_image.url});"}
-    =image_tag "#{@user.background_image.url}",class:"user-bg-image"
+  -if @user.background_image.present?
+    .user-background
+      .user-background__image{"style":"background-image:url(#{@user.background_image.url});"}
+      =image_tag "#{@user.background_image.url}",class:"user-bg-image"
+  -else
+    .user-background-none
   .flex-wrapper 
     .main
       .main__profile
@@ -17,7 +20,7 @@
                 =link_to school_path(@user.school),class:"user-school-link" do
                   =@user.school.name
         .main__profile__text
-          =@user.profile
+          =simple_format(@user.profile)
         -# .main__profile__availability
         -#   %span.main__profile__availability__title
         -#     チャット可能時間
@@ -102,13 +105,13 @@
               -@user.schedules.each do |s|
                 %li.side-bar__availability__chat__list
                   -if s.availability?
-                    =s.day
+                    =s.day_i18n
                     \: 
                     =s.start_time.strftime('%H:%M')
                     \- 
                     =s.end_time.strftime('%H:%M')
                   -else
-                    =s.day
+                    =s.day_i18n
                     \: 
                     なし
 =render "shared/footer"
