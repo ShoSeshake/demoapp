@@ -45,7 +45,7 @@
           .index__box__flex__adviser{"data-adviser":adviser.id}
             .index__box__flex__adviser__image
               =link_to user_path(adviser) do
-                .adviser-image-index
+                =image_tag "#{adviser.icon.url}",class:"adviser-image-index"
             .index__box__flex__adviser__name
               =link_to user_path(adviser), class:"index-user-links" do
                 =adviser.name

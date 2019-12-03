@@ -114,4 +114,7 @@
                     =s.day_i18n
                     \: 
                     なし
+      -if user_signed_in? && current_user == @user
+        .side-bar__logout
+          =button_to 'ログアウト', destroy_user_session_path, method: :delete,class:"logout-btn"
 =render "shared/footer"

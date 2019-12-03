@@ -6,5 +6,8 @@ $(function() {
             notice.fadeOut(500);
         }
         setTimeout(hideNotice, 5000);
+        notice.on('click', function() {
+            notice.fadeOut(500);
+        })
     }
 })

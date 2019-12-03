@@ -67,14 +67,20 @@
             &__adviser {
                 width: 250px;
                 &__image {
-                    .school-image-index,
-                    .adviser-image-index {
+                    .school-image-index {
                         height: 150px;
                         width: 150px;
                         border-radius: 50%;
                         margin: 0 auto 10px;
                         background: radial-gradient(rgb(255, 164, 60), rgb(255, 250, 221));
                         color: white;
+                    }
+                    .adviser-image-index {
+                        display: block;
+                        max-height: 150px;
+                        max-width: 150px;
+                        border-radius: 50%;
+                        margin: 0 auto 10px;
                     }
                 }
                 &__name {
