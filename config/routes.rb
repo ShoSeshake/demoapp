@@ -15,12 +15,14 @@ Rails.application.routes.draw do
   end
 
   resources :blogs
+
   resource :signups, only: [:create] do
     collection do
       get 'adviser'
       get 'user'
       get 'schedule'
       get 'complete'
+      post 'adviser_create'
     end
   end
 
