@@ -3,7 +3,7 @@
     .signup-logo
       Logo
   .singup-form
-    =form_with(model: @user, url: schedule_signups_path, remote: false) do |f|
+    =form_with(model: @user, url: schedule_signups_path, local:true) do |f|
       .singup-form__field
         .singup-form__field__title
           =f.label :name do

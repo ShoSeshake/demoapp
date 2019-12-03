@@ -1,19 +1,19 @@
 class SignupsController < ApplicationController
 
-  # before_action :validation, only: :schedule
+  before_action :validation, only: :schedule
 
   def adviser
     @user =User.new
   end
   
   def schedule
-    # session[:name] = adviser_params[:name]
-    # session[:email] = adviser_params[:email]
-    # session[:password] = adviser_params[:password]
-    # session[:password_confirmation] = adviser_params[:password_confirmation]
-    # session[:icon] = adviser_params[:icon]
-    # session[:background_image] = adviser_params[:background_image]
-    # session[:profile] = adviser_params[:profile]
+    session[:name] = adviser_params[:name]
+    session[:email] = adviser_params[:email]
+    session[:password] = adviser_params[:password]
+    session[:password_confirmation] = adviser_params[:password_confirmation]
+    session[:icon] = adviser_params[:icon]
+    session[:background_image] = adviser_params[:background_image]
+    session[:profile] = adviser_params[:profile]
 
     @user =User.new
     @user.schedules.build

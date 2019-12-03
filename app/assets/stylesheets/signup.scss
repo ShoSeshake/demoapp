@@ -59,10 +59,61 @@
                 border: none;
             }
         }
+        &__schedule {
+            display: none;
+            margin-left: 20px;
+            select {
+                cursor: pointer;
+                height: 40px;
+                padding: 0 10px;
+                border-radius: 0px;
+                border: none;
+                border-bottom: 1px solid lightgrey;
+            }
+        }
+        &__checkbox:checked~.singup-form__field__schedule {
+            display: block;
+        }
+        &__checkbox {
+            display: none;
+        }
+        .schedule-btn {
+            background-color: white;
+            border: 1px solid lightgrey;
+            height: 40px;
+            display: block;
+            line-height: 40px;
+            padding: 0 10px;
+            color: grey;
+            cursor: pointer;
+            &:hover {
+                color: white;
+                background-color: $orange;
+                border: 1px solid $orange;
+            }
+        }
+        &__checkbox:checked~.schedule-btn {
+            color: white;
+            background-color: $orange;
+            border: 1px solid $orange;
+        }
+        &__unable {
+            display: block;
+            margin-left: 20px;
+            color: grey;
+        }
+        &__checkbox:checked~.singup-form__field__unable {
+            display: none;
+        }
+    }
+    &__field.schedule-box {
+        line-height: 40px;
+        height: 40px;
+        display: flex;
     }
 }
 
-span.required {
+.singup-form__field span.required {
     font-size: 11px;
     color: white;
     background-color: red;
@@ -103,4 +154,9 @@ span.optional {
     justify-content: space-between;
     width: 600px;
     margin: 0 auto 20px;
+}
+
+#user-school-select {
+    background-color: white;
+    border-radius: 0;
 }
