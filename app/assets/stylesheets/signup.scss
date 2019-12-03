@@ -1,0 +1,106 @@
+.sigunup-header {
+    margin: 0 auto;
+    width: 800px;
+    height: 100px;
+    .signup-logo {
+        margin: 20px;
+        height: 60px;
+        width: 180px;
+        background-color: black;
+        color: white;
+        line-height: 60px;
+        text-align: center;
+    }
+}
+
+.singup-form {
+    width: 800px;
+    margin: 0 auto 20px;
+    background-color: #fafafa;
+    padding: 20px;
+    &__field {
+        width: 600px;
+        margin: 0 auto 20px;
+        &__title {
+            padding-left: 10px;
+            margin-bottom: 8px;
+        }
+        .user-text-field {
+            width: 100%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px lightgrey solid;
+            &:focus {
+                border: 1px $orange solid;
+            }
+        }
+        .user-text-area {
+            padding: 10px;
+            width: 100%;
+            height: 200px;
+            border: 1px lightgrey solid;
+            &:focus {
+                border: 1px $orange solid;
+            }
+        }
+        .image-upload {
+            text-align: center;
+            line-height: 40px;
+            width: 90%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px lightgrey solid;
+            color: grey;
+            background-color: white;
+            cursor: pointer;
+            &:hover {
+                background-color: $orange;
+                color: white;
+                border: none;
+            }
+        }
+    }
+}
+
+span.required {
+    font-size: 11px;
+    color: white;
+    background-color: red;
+    padding: 1px 2px;
+    display: inline-block;
+}
+
+span.optional {
+    font-size: 11px;
+    color: white;
+    background-color: grey;
+    padding: 1px 2px;
+    display: inline-block;
+}
+
+#adviser-create-btn {
+    display: block;
+    margin: 10px auto;
+    border: 1px $orange solid;
+    color: $orange;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 30px;
+    cursor: pointer;
+    &:hover {
+        background-color: $orange;
+        color: white;
+    }
+}
+
+#user_icon,
+#user_background_image {
+    display: none;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin: 0 auto 20px;
+}
