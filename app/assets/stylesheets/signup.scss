@@ -1,3 +1,16 @@
+.signup-page-wrapper {
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.signup-warning {
+    padding: 10px;
+    text-align: center;
+    color: red;
+}
+
 .sigunup-header {
     margin: 0 auto;
     width: 800px;
@@ -129,14 +142,16 @@ span.optional {
     display: inline-block;
 }
 
+#adviser-next-btn,
 #adviser-create-btn {
+    text-align: center;
+    width: 150px;
     display: block;
     margin: 10px auto;
     border: 1px $orange solid;
     color: $orange;
     height: 40px;
     line-height: 40px;
-    padding: 0 30px;
     cursor: pointer;
     &:hover {
         background-color: $orange;
@@ -159,4 +174,27 @@ span.optional {
 #user-school-select {
     background-color: white;
     border-radius: 0;
+}
+
+#signup-page1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+}
+
+#signup-page2 {
+    position: absolute;
+    right: -100vw;
+    top: 100px
+}
+
+#adviser-pre-btn {
+    display: inline-block;
+    color: $orange;
+    cursor: pointer;
+    height: 30px;
+    &:hover {
+        border-bottom: 1px solid $orange;
+    }
 }

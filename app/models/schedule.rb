@@ -6,6 +6,4 @@ class Schedule < ApplicationRecord
   validates :day,  presence: true
   validates :start_time, :end_time, presence: true, if: :availability?
   validates :start_time, :end_time, presence: false, unless: :availability?
-
-  
 end
