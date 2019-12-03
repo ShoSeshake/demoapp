@@ -41,7 +41,7 @@
       .index__box__title
         人気アドバイザー
       .index__box__flex
-        -@advisers.each do |adviser|
+        -@advisers.limit(3).each do |adviser|
           .index__box__flex__adviser{"data-adviser":adviser.id}
             .index__box__flex__adviser__image
               =link_to user_path(adviser) do
