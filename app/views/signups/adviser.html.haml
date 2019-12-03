@@ -3,7 +3,8 @@
     .signup-logo
       Logo
   .singup-form
-    =form_with(model: @user, url: schedule_signups_path, local:true) do |f|
+    -# =form_with(model: @user, url: schedule_signups_path, method: :get,local:true, multipart: true) do |f|
+    =form_for @user, url: schedule_signups_path, method: :post do |f|
       .singup-form__field
         .singup-form__field__title
           =f.label :name do
@@ -41,7 +42,7 @@
           =f.label :icon do
             .image-upload
               アイコンを選択する
-            =f.file_field :icon 
+            =f.file_field :icon
         .singup-form__field
           .singup-form__field__title
             背景画像

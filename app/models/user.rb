@@ -12,12 +12,6 @@ class User < ApplicationRecord
     has_many :blogs,                 dependent: :destroy
     has_many :schedules,              dependent: :destroy
 
-    # has_many :reviewer_chat_reviews, foreign_key: "reviewee_id", class_name: "ChatReview"
-    # has_many :reviewers, through: :reviewer_chat_reviews
-  
-    # has_many :reviewee_chat_reviews, foreign_key: "reviewer_id", class_name: "ChatReview"
-    # has_many :reviewees, through: :reviewee_chat_reviews
-
     belongs_to :school, optional: true
 
     accepts_nested_attributes_for :schedules
@@ -30,7 +24,6 @@ class User < ApplicationRecord
     validates :name, :email, :password, :password_confirmation, :profile, :icon, presence: true
     validates :ticket, presence: true, unless: :adviser?
     validates :school, presence: true, if: :adviser?
-    validates :school, :ticket, presence: false, unless: :adviser?
     validates :schedules, length: { minimum: 7, maximum: 7}, if: :adviser?
 
 end

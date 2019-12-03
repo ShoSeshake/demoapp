@@ -19,8 +19,10 @@ Rails.application.routes.draw do
   resource :signups, only: [:create] do
     collection do
       get 'adviser'
-      get 'user'
+      # post 'adviser' => 'signups#validation' # 図❶
+      post 'schedule'
       get 'schedule'
+      get 'user'
       get 'complete'
       post 'adviser_create'
     end

@@ -4,6 +4,7 @@
       Logo
   .singup-form
     =form_with(model: @user, url: adviser_create_signups_path, local: true) do |f|
+      = hidden_field_tag :icon, value:session[:icon]
       .singup-form__field
         .singup-form__field__title
           =f.label :school_id do

@@ -3,6 +3,7 @@ class SignupsController < ApplicationController
   before_action :validation, only: :schedule
 
   def adviser
+    reset_session
     @user =User.new
   end
   
@@ -14,12 +15,12 @@ class SignupsController < ApplicationController
     session[:icon] = adviser_params[:icon]
     session[:background_image] = adviser_params[:background_image]
     session[:profile] = adviser_params[:profile]
-
     @user =User.new
     @user.schedules.build
   end
-
+  
   def adviser_create
+    binding.pry
     @user = User.new(
       name: session[:name], 
       email: session[:email],
@@ -29,10 +30,9 @@ class SignupsController < ApplicationController
       background_image: session[:background_image], 
       profile: session[:profile],
       adviser: 1,
-      ticket: 0,
       schoold_id: adviser_params(:school_id)
-        )
-    @user.schedules.build(user_params[:schedules_attributes])
+    )
+    @user.schedules.build(adviser_params[:schedules_attributes])
     if @user.save
       sign_in @user unless user_signed_in?
       redirect_to complete_signups_path
@@ -65,8 +65,6 @@ class SignupsController < ApplicationController
     session[:email] = adviser_params[:email]
     session[:password] = adviser_params[:password]
     session[:password_confirmation] = adviser_params[:password_confirmation]
-    session[:icon] = adviser_params[:icon]
-    session[:background_image] = adviser_params[:background_image]
     session[:profile] = adviser_params[:profile]
 
     @user = User.new(
@@ -74,11 +72,9 @@ class SignupsController < ApplicationController
       email: session[:email],
       password: session[:password],
       password_confirmation: session[:password_confirmation],
-      icon: session[:icon], 
-      background_image: session[:background_image], 
-      profile: session[:profile]
+      profile: session[:profile],
+      adviser: 1
     )
-    render schedule_signups_path unless @user.valid?
   end
 
   private
