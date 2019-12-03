@@ -13,7 +13,54 @@ $(function() {
         $('.reserve-date__year').text(Number(date[0]));
         $('.reserve-date__month').text(Number(date[1]));
         $('.reserve-date__day').text(Number(date[2]));
+        $('.chat-new__time__list').hide();
+        if ($(this).hasClass('fc-mon')) {
+            $('.schedule-monday').fadeIn(500);
+            $('.schedule-monday').css({
+                'display': 'inline-block'
+            })
+        } else if ($(this).hasClass('fc-tue')) {
+            $('.schedule-tuesday').fadeIn(500);
+            $('.schedule-tuesday').css({
+                'display': 'inline-block'
+            })
+        } else if ($(this).hasClass('fc-wed')) {
+            $('.schedule-wednesday').fadeIn(500);
+            $('.schedule-wednesday').css({
+                'display': 'inline-block'
+            })
+        } else if ($(this).hasClass('fc-thu')) {
+            $('.schedule-thursday').fadeIn(500);
+            $('.schedule-thursday').css({
+                'display': 'inline-block'
+            })
+        } else if ($(this).hasClass('fc-fri')) {
+            $('.schedule-friday').fadeIn(500);
+            $('.schedule-friday').css({
+                'display': 'inline-block'
+            })
+        } else if ($(this).hasClass('fc-sat')) {
+            $('.schedule-saturday').fadeIn(500);
+            $('.schedule-saturday').css({
+                'display': 'inline-block'
+            })
+        } else if ($(this).hasClass('fc-sun')) {
+            $('.schedule-sunday').fadeIn(500);
+            $('.schedule-sunday').css({
+                'display': 'inline-block'
+            })
+        }
     });
+
+    $(document).on('click', '.chat-new__time__list__btn', function() {
+
+        var time = $(this).data('time').split(':');
+        $('#chat_start_at_4i').val(Number(time[0]));
+        $('#chat_start_at_5i').val(Number(time[1]));
+        $('.reserve-time__hour').text(Number(time[0]) + '時');
+        $('.reserve-time__min').text(Number(time[1]) + '分');
+    });
+
 })
 $(function() {
     $(document).on('click', '#chat-new-modal', function() {

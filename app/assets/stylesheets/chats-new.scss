@@ -34,11 +34,29 @@
     bottom: 0;
     right: 0;
     width: 600px;
-    height: 600px;
+    height: 700px;
     margin: auto auto;
     background-color: white;
     z-index: 100;
-    &__time {}
+    &__time {
+        width: 500px;
+        margin: 0 auto;
+        height: 80px;
+        &__list {
+            display: none;
+            &__btn {
+                color: $orange;
+                border: 1px solid $orange;
+                border-radius: 3px;
+                padding: 5px;
+                margin: 5px;
+                &:hover {
+                    color: white;
+                    background-color: $orange;
+                }
+            }
+        }
+    }
 }
 
 #chat-new-form {
@@ -70,4 +88,5 @@
 .reserve-date,
 .reserve-time {
     text-align: center;
+    height: 30px;
 }

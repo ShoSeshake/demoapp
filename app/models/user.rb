@@ -32,4 +32,5 @@ class User < ApplicationRecord
     validates :school, presence: true, if: :adviser?
     validates :school, :ticket, presence: false, unless: :adviser?
     validates :schedules, length: { minimum: 7, maximum: 7}, if: :adviser?
+
 end

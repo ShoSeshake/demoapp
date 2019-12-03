@@ -7,6 +7,7 @@ class ChatsController < ApplicationController
 
   def new
     @chat = Chat.new
+    @start_times = start_times(@user)
     render 'new.js.erb'
   end
 
@@ -16,6 +17,8 @@ class ChatsController < ApplicationController
     if @chat.start_at < date.tomorrow
       redirect_to user_path(@user), alert: '明日以降の日程で指定してください'
     elsif @chat.save
+      current_user.update(ticket: current_user.ticket -= 1)
+      # binding.pry
       redirect_to user_path(@user), notice: "予約が完了しました。#{@chat.start_at}からです"
     else
       redirect_to user_path(@user), alert: '予約できませんでした'
@@ -68,5 +71,24 @@ class ChatsController < ApplicationController
     params.require(:chat).permit(
       :user_peer_id
     )
+  end
+
+  def start_times(user)
+    schedules = user.schedules
+    start_times = []
+    schedules.each do |s|
+      if s.availability?
+        time = s.start_time.to_datetime
+        while (time.strftime('%H:%M').to_datetime < s.end_time.strftime('%H:%M').to_datetime) do
+          start_time = {day: s.day, start_time: time.strftime('%H:%M')}
+          start_times << start_time
+          time += Rational(30,24*60)
+        end
+      else
+        start_time = {day: s.day, start_time: "none"}
+        start_times << start_time
+      end
+    end
+    return start_times
   end
 end
