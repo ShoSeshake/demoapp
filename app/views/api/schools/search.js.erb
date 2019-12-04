@@ -1,0 +1,1 @@
+$(".search-main__schools__grid").html("<% @schools.each do |s| %><%= j(render partial: 'schools/school',locals: {s: s}) %><% end %>")

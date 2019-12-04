@@ -1,7 +1,7 @@
 =render 'shared/header'
 .flex-wrapper 
   .search-sidebar
-    = search_form_for(@q, url: search_schools_path, id:"search-form",local:true) do |f|
+    = search_form_for(@q, url: search_api_schools_path, id:"search-form",remote:true) do |f|
       .search-sidebar__name
         = f.select(:sorts, { '並び替え': 'id desc', '新しい順': 'created_at desc', '古い順': 'created_at asc'}, {},{id:'select-order'})
       .search-sidebar__box

@@ -15,23 +15,10 @@ class SchoolsController < ApplicationController
     if params[:keyword]
       @q = School.ransack(params[:q])
       @schools = School.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(20)
-    elsif params[:q]
-      @q = School.ransack(search_params)
-      @schools = @q.result(distinct: true)
     else
-      params[:q] = { sorts: 'id desc' }
-      @schools = School.all.order("created_at DESC")
+      params[:q] = { sorts: 'created_at desc' }
       @q = School.ransack(params[:q])
+      @schools = @q.result(distinct: true)
     end
-  end
-
-  private
-  def search_params
-    params.require(:q).permit(
-      :sorts,
-      :name_cont,
-      { location_in: [] },
-      { schools_merits_merit_id_in: [] }
-      )
   end
 end

@@ -35,4 +35,12 @@ Rails.application.routes.draw do
     end
     resources :chat_reviews, only: [:new,:create]
   end
+
+  namespace :api do
+    resources :schools, except: [:index,:new,:destroy,:edit,:create,:show,:update] do
+      collection do
+        get 'search'
+      end
+    end   
+  end
 end
