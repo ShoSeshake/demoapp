@@ -21,35 +21,35 @@
                   =@user.school.name
         .main__profile__text
           =simple_format(@user.profile)
-      -if @user.adviser?
-        .main__blog
-          .main__blog__title
-            最新のブログ記事
-          %ul.main__blog__all
-            %li.main__blog__all__list
-              .main__blog__all__list__top
-                %h4.main__blog__all__list__top__title
-                  タイトル
-                %h6.main__blog__all__list__top__time
-                  =Time.now
-              %p.main__blog__all__list__text
-                ブログの本文を表示
-            %li.main__blog__all__list
-              .main__blog__all__list__top
-                %h4.main__blog__all__list__top__title
-                  タイトル
-                %h6.main__blog__all__list__top__time
-                  =Time.now
-              %p.main__blog__all__list__text
-                ブログの本文を表示
-            %li.main__blog__all__list
-              .main__blog__all__list__top
-                %h4.main__blog__all__list__top__title
-                  タイトル
-                %h6.main__blog__all__list__top__time
-                  =Time.now
-              %p.main__blog__all__list__text
-                ブログの本文を表示
+      -# -if @user.adviser?
+      -#   .main__blog
+      -#     .main__blog__title
+      -#       最新のブログ記事
+      -#     %ul.main__blog__all
+      -#       %li.main__blog__all__list
+      -#         .main__blog__all__list__top
+      -#           %h4.main__blog__all__list__top__title
+      -#             タイトル
+      -#           %h6.main__blog__all__list__top__time
+      -#             =Time.now
+      -#         %p.main__blog__all__list__text
+      -#           ブログの本文を表示
+      -#       %li.main__blog__all__list
+      -#         .main__blog__all__list__top
+      -#           %h4.main__blog__all__list__top__title
+      -#             タイトル
+      -#           %h6.main__blog__all__list__top__time
+      -#             =Time.now
+      -#         %p.main__blog__all__list__text
+      -#           ブログの本文を表示
+      -#       %li.main__blog__all__list
+      -#         .main__blog__all__list__top
+      -#           %h4.main__blog__all__list__top__title
+      -#             タイトル
+      -#           %h6.main__blog__all__list__top__time
+      -#             =Time.now
+      -#         %p.main__blog__all__list__text
+      -#           ブログの本文を表示
     .side-bar
       .side-bar__sns
         .side-bar__sns__twitter
@@ -60,27 +60,26 @@
           =icon('fab','instagram',class:"icon-instagram")
         .side-bar__sns__youtube
           =icon('fab','youtube',class:"icon-youtube")
-      -if @user.adviser?
-        -if current_user == @user
-          =button_to '記事を書く', new_blog_path, method: :get,class:"side-bar__blog-btn"
-        -else
-          =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
-          .side-bar__availability
-            %span.side-bar__availability__title
-              チャット可能時間
-            %ul.side-bar__availability__chat
-              -@user.schedules.each do |s|
-                %li.side-bar__availability__chat__list
-                  -if s.availability?
-                    =s.day_i18n
-                    \: 
-                    =s.start_time.strftime('%H:%M')
-                    \- 
-                    =s.end_time.strftime('%H:%M')
-                  -else
-                    =s.day_i18n
-                    \: 
-                    なし
+      -if @user.adviser? && current_user == @user
+        =button_to '記事を書く', new_blog_path, method: :get,class:"side-bar__blog-btn"
+      -elsif @user.adviser? && (current_user.adviser? == false)
+        =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
+        .side-bar__availability
+          %span.side-bar__availability__title
+            チャット可能時間
+          %ul.side-bar__availability__chat
+            -@user.schedules.each do |s|
+              %li.side-bar__availability__chat__list
+                -if s.availability?
+                  =s.day_i18n
+                  \: 
+                  =s.start_time.strftime('%H:%M')
+                  \- 
+                  =s.end_time.strftime('%H:%M')
+                -else
+                  =s.day_i18n
+                  \: 
+                  なし
       -if user_signed_in? && current_user == @user
         .side-bar__logout
           =button_to 'ログアウト', destroy_user_session_path, method: :delete,class:"logout-btn"
