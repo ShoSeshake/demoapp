@@ -55,6 +55,12 @@
                     color: white;
                     background-color: $orange;
                 }
+                &:disabled {
+                    background-color: lightgrey;
+                    border: solid 1px $grey;
+                    color: grey;
+                    cursor: not-allowed;
+                }
             }
         }
     }
@@ -84,10 +90,20 @@
         background-color: $orange;
         color: white;
     }
+    &:disabled {
+        background-color: lightgrey;
+        border: solid 1px $grey;
+        color: grey;
+        cursor: not-allowed;
+    }
 }
 
 .reserve-date,
 .reserve-time {
     text-align: center;
     height: 30px;
+}
+
+.hidden-box {
+    display: none;
 }

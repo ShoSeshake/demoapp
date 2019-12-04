@@ -1,4 +1,5 @@
 =render 'shared/header'
+%input{type:"file"}
 .wrapper
   .slick
     .index-background-image.image-1
@@ -23,9 +24,8 @@
       .index__box__flex
         -@schools.limit(3).each do |s|
           .index__box__flex__school{"data-school":s.id}
-            .index__box__flex__school__image
-              =link_to school_path(s) do
-                =image_tag "#{s.image.url}", class:"school-image-index"
+            =link_to school_path(s) do
+              .index__box__flex__school__image{"style":"background-image:url(#{s.image.url});"}
             .index__box__flex__school__name
               =link_to school_path(s), class:"index-school-links" do
                 =s.name
@@ -44,9 +44,8 @@
       .index__box__flex
         -@advisers.limit(3).each do |adviser|
           .index__box__flex__adviser{"data-adviser":adviser.id}
-            .index__box__flex__adviser__image
-              =link_to user_path(adviser) do
-                =image_tag "#{adviser.icon.url}",class:"adviser-image-index"
+            =link_to user_path(adviser) do
+              .index__box__flex__adviser__image{"style":"background-image:url(#{adviser.icon.url});"}
             .index__box__flex__adviser__name
               =link_to user_path(adviser), class:"index-user-links" do
                 =adviser.name

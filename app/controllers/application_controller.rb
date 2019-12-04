@@ -7,8 +7,10 @@ class ApplicationController < ActionController::Base
   end 
 
   def header_menu
-    if user_signed_in?
-      @coming_chats = current_user.chats.incoming.order(start_at: :asc)
+    if user_signed_in? && current_user.adviser?
+      @coming_chats = Chat.where(adviser_id: current_user.id).incoming.order(start_at: :asc)
+    elsif user_signed_in?
+      @coming_chats = Chat.where(user_id: current_user.id).incoming.order(start_at: :asc)
     else
     end
   end

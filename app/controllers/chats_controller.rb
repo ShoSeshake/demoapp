@@ -8,6 +8,7 @@ class ChatsController < ApplicationController
   def new
     @chat = Chat.new
     @start_times = start_times(@user)
+    @adviser_chats = Chat.where(adviser_id: @user.id).incoming.order(start_at: :asc)
     render 'new.js.erb'
   end
 
@@ -18,7 +19,6 @@ class ChatsController < ApplicationController
       redirect_to user_path(@user), alert: '明日以降の日程で指定してください'
     elsif @chat.save
       current_user.update(ticket: current_user.ticket -= 1)
-      # binding.pry
       redirect_to user_path(@user), notice: "予約が完了しました。#{@chat.start_at}からです"
     else
       redirect_to user_path(@user), alert: '予約できませんでした'

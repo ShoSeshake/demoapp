@@ -1,7 +1,6 @@
 .school-box
   =link_to school_path(s), class:"school-box__link" do
-    .school-box__image
-      .school-image
+    .school-box__image{"style":"background-image:url(#{s.image.url});"}
     .school-box__name
       =s.name
     .school-box__description

@@ -6,13 +6,12 @@ class Schedule < ApplicationRecord
   validates :day,  presence: true
   validates :start_time, :end_time, presence: true, if: :availability?
   validates :start_time, :end_time, presence: false, unless: :availability?
-  # validate :start_end_check, unless: :availability?
+  validate :start_end_check
 
-  # def start_end_check
-  #   if self.availability?
-  #     errors.add(:end_time, "の日付を正しく記入してください。") unless
-  #     self.start_time < self.end_time
-  #     binding.pry
-  #   end
-  # end
+  def start_end_check
+    if self.availability?
+      errors.add(:end_time, "の日付を正しく記入してください。") unless
+      self.start_time < self.end_time
+    end
+  end
 end

@@ -12,8 +12,7 @@ class SignupsController < ApplicationController
       sign_in @user unless user_signed_in?
       redirect_to complete_signups_path
     else
-      @user.schedules.build
-      render adviser_signups_path, alert: "必須項目を全てご記入ください"
+      redirect_to adviser_signups_path, alert: "必須項目を全てご記入ください"
     end
   end
   

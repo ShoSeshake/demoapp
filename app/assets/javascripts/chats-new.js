@@ -1,4 +1,5 @@
 $(function() {
+
     $(document).on('click', '.fc-past', function() {
         alert('その日程は選べません。');
     });
@@ -13,7 +14,21 @@ $(function() {
         $('.reserve-date__year').text(Number(date[0]));
         $('.reserve-date__month').text(Number(date[1]));
         $('.reserve-date__day').text(Number(date[2]));
+        $('#chat-new-btn').prop("disabled", true);
+        $('#chat_start_at_4i').val('');
+        $('#chat_start_at_5i').val('');
+        $('.reserve-time__hour').text('');
+        $('.reserve-time__min').text('');
         $('.chat-new__time__list').hide();
+        $('.chat-new__time__list__btn').prop("disabled", false);
+        if ($('.time-box').data('day') == $(this).data('date')) {
+            var date = $(this).data('date');
+            var time = $('[data-day=' + date + ']')
+            time.each(function() {
+                bookedTime = $('.booked-' + $(this).data('time'))
+                bookedTime.prop("disabled", true);
+            })
+        }
         if ($(this).hasClass('fc-mon')) {
             $('.schedule-monday').fadeIn(500);
             $('.schedule-monday').css({
@@ -59,6 +74,7 @@ $(function() {
         $('#chat_start_at_5i').val(Number(time[1]));
         $('.reserve-time__hour').text(Number(time[0]) + '時');
         $('.reserve-time__min').text(Number(time[1]) + '分');
+        $('#chat-new-btn').prop("disabled", false);
     });
 
 })

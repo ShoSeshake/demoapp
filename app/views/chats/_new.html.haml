@@ -2,12 +2,15 @@
 .chat-new
   #calendar
   .chat-new__time
+    .hidden-box
+      -@adviser_chats.each do |c|
+        .time-box{"data-day":c.start_at.strftime("%Y-%m-%d"),"data-time":c.start_at.to_time.strftime("%H%M")}
     -@start_times.each do |s|
       .chat-new__time__list{class:"schedule-#{s[:day]}"}
         -if s[:start_time] == "none"
           この日は予約できません
         -else
-          %button.chat-new__time__list__btn{"data-time":s[:start_time]}
+          %button.chat-new__time__list__btn{"data-time":s[:start_time],class:"booked-#{s[:start_time].to_time.strftime("%H%M")}"}
             =s[:start_time]
   .reserve-date
     %span.reserve-date__year
@@ -24,4 +27,4 @@
     %span.reserve-time__min
   =form_with(model: @chat,url: user_chats_path(@user) ,method: :post,local: true,id:"chat-new-form") do |f|
     != sprintf(f.datetime_select(:start_at,use_month_numbers:true, start_year: (Time.now.year), end_year: (Time.now.year + 18), default: Time.now,date_separator:'%s'),'年','月')
-    =f.submit '予約する', id:"chat-new-btn"
+    =f.submit '予約する', id:"chat-new-btn",disabled:"disabled"
