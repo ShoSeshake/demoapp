@@ -18,7 +18,7 @@
               =c[0]
       .search-sidebar__box
         %span.search-sidebar__box__title
-          メリット
+          特徴
         .search-sidebar__box__list
           -Merit.all.each do |c|
             =f.label :schools_merits_merit_id_in, class:"search-sidebar__box__list__label search-sidebar__box__list__label--block",for:"q_schools_merits_merit_id_in_#{c.id}" do
@@ -26,6 +26,15 @@
               =c.title
       =f.submit '検索',id:"search-btn"
   .search-main
-    -@schools.each do |s|
-      =s.name
+    .search-main__schools
+      .search-main__schools__grid
+        -@schools.each do |s|
+          .school-box
+            =link_to school_path(s), class:"school-box__link" do
+              .school-box__image
+                .school-image
+              .school-box__name
+                =s.name
+              .school-box__description
+                =s.description
 =render "shared/footer"
