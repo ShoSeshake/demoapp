@@ -112,14 +112,13 @@ gem 'jquery-rails'
 gem 'kaminari'
 # 日本語化
 gem 'rails-i18n'
+gem 'enum_help' 
 # ビデオチャット用
 gem 'webpacker'
 # JSでインスタンス変数を使う用
 gem 'gon'
-# 文字起こす
+# 文字起こし
 gem 'google-cloud-speech'
 # カレンダー
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-
-gem 'enum_help' 
