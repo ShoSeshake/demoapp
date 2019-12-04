@@ -67,6 +67,12 @@
             &__adviser {
                 width: 250px;
                 &__image {
+                    position: relative;
+                    height: 150px;
+                    width: 150px;
+                    margin: 0 auto 10px;
+                    border-radius: 50%;
+                    overflow: hidden;
                     .school-image-index {
                         height: 150px;
                         width: 150px;
@@ -76,11 +82,15 @@
                         color: white;
                     }
                     .adviser-image-index {
-                        display: block;
-                        max-height: 150px;
-                        max-width: 150px;
-                        border-radius: 50%;
-                        margin: 0 auto 10px;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto auto;
+                        position: absolute;
+                        height: auto;
+                        width: 100%;
+                        // border-radius: 50%;
                     }
                 }
                 &__name {
@@ -94,6 +104,8 @@
         }
         &__introduction {
             display: none;
+            height: 100px;
+            overflow: hidden;
             padding: 20px 20px 0;
             &__text {
                 margin-bottom: 10px;

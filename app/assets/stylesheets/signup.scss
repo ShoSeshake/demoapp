@@ -124,6 +124,33 @@
         height: 40px;
         display: flex;
     }
+    &__complete {
+        text-align: center;
+        width: 600px;
+        margin: 10px auto 20px;
+        &__top-btn {
+            margin: 40px 0 20px;
+            text-align: center;
+            .signup-link {
+                color: $orange;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                &:after {
+                    content: '';
+                    border-bottom: 1px $orange solid;
+                    position: absolute;
+                    width: 0;
+                    transition: width 0.5s;
+                    bottom: 0;
+                    left: 0;
+                }
+                &:hover:after {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 .singup-form__field span.required {

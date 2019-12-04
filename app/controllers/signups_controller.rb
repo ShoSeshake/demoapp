@@ -1,6 +1,5 @@
 class SignupsController < ApplicationController
 
-  # before_action :validation, only: :schedule
 
   def adviser
     @user =User.new
@@ -14,7 +13,7 @@ class SignupsController < ApplicationController
       redirect_to complete_signups_path
     else
       @user.schedules.build
-      render adviser_signups_path
+      render adviser_signups_path, alert: "必須項目を全てご記入ください"
     end
   end
   
@@ -24,12 +23,11 @@ class SignupsController < ApplicationController
 
   def create
     @user =User.new(user_params)
-
     if @user.save
       sign_in @user unless user_signed_in?
       redirect_to complete_signups_path
     else
-      render user_signups_path
+      render user_signups_path, alert: "必須項目を全てご記入ください"
     end
   end
 
