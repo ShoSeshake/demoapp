@@ -13,7 +13,6 @@ class SignupsController < ApplicationController
       sign_in @user unless user_signed_in?
       redirect_to complete_signups_path
     else
-      binding.pry
       @user.schedules.build
       render adviser_signups_path
     end
@@ -25,6 +24,7 @@ class SignupsController < ApplicationController
 
   def create
     @user =User.new(user_params)
+
     if @user.save
       sign_in @user unless user_signed_in?
       redirect_to complete_signups_path
@@ -35,7 +35,6 @@ class SignupsController < ApplicationController
 
 
   def complete
-
   end
 
   private
@@ -64,5 +63,14 @@ class SignupsController < ApplicationController
       :school_id,
       schedules_attributes:[:id,:day,:availability,:start_time, :end_time]
     ).merge(adviser: 1)
+  end
+
+  def schedule_check(user)
+    user.schedules.each do |s|
+      if s.availability?
+        render :adviser unless s.start_time.strftime('%H:%M').to_datetime < s.end_time.strftime('%H:%M').to_datetime
+      else
+      end
+    end
   end
 end
