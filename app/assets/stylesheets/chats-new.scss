@@ -42,6 +42,7 @@
         width: 500px;
         margin: 0 auto;
         height: 80px;
+        overflow: scroll;
         &__list {
             display: none;
             &__btn {

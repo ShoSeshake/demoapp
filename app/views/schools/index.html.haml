@@ -25,18 +25,19 @@
           .index__box__flex__school{"data-school":s.id}
             .index__box__flex__school__image
               =link_to school_path(s) do
-                .school-image-index
+                =image_tag "#{s.image.url}", class:"school-image-index"
             .index__box__flex__school__name
               =link_to school_path(s), class:"index-school-links" do
                 =s.name
-      -@schools.limit(3).each do |s|
-        .index__box__introduction.school-introduction{id:"school-description-#{s.id}"}
-          .index__box__introduction__text
-            =s.description
-          .index__box__introduction__merits
-            -s.merits.each do |m|
-              =m.title
-              \/
+      .index__box__introduction
+        -@schools.limit(3).each do |s|
+          .index__box__introduction__hidden.school-introduction{id:"school-description-#{s.id}"}
+            .index__box__introduction__hidden__merits
+              -s.merits.each do |m|
+                =m.title
+                \/
+            .index__box__introduction__hidden__text
+              =s.description
     .index__box
       .index__box__title
         人気アドバイザー
@@ -52,8 +53,9 @@
             .index__box__flex__adviser__text
               =link_to school_path(adviser.school), class:"index-user-links" do
                 =adviser.school.name
-      -@advisers.limit(3).each do |a|
-        .index__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
-          .index__box__introduction__text
-            =simple_format(a.profile)
+      .index__box__introduction
+        -@advisers.limit(3).each do |a|
+          .index__box__introduction__hidden.adviser-introduction{id:"adviser-description-#{a.id}"}
+            .index__box__introduction__hidden__text
+              =simple_format(a.profile)
 = render "shared/footer"
