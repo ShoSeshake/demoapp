@@ -1,36 +1,68 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+=render "shared/header"
+.wrapper
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .singup-form
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :name do
+            名前
+          %span.required
+            必須
+        =f.text_field :name ,class:"user-text-field first-page-box",required:"required"
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :email do
+            メールアドレス
+          %span.required
+            必須
+        =f.email_field :email,class:"user-text-field first-page-box",required:"required", autocomplete: "email"
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :password do
+            パスワード(変更したい場合のみ)
+          %span.required
+            必須
+        =f.password_field :password ,class:"user-text-field first-page-box", autocomplete: "new-password"
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :password_confirmation do
+            パスワード(確認用)
+          %span.required
+            必須
+        =f.password_field :password_confirmation ,class:"user-text-field first-page-box", autocomplete: "new-password"
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :current_password do
+            現在のパスワード
+          %span.required
+            必須
+        =f.password_field :current_password ,class:"user-text-field first-page-box",required:"required", autocomplete: "current-password"
+      .flex-box
+        .singup-form__field
+          .singup-form__field__title
+            アイコン
+            %span.required
+              必須
+          =f.label :icon do
+            .image-upload
+              アイコンを選択する
+            =f.file_field :icon, class:"first-page-box"
+        .singup-form__field
+          .singup-form__field__title
+            背景画像
+            %span.optional
+              任意
+          =f.label :background_image do
+            .image-upload
+              背景画像を選択する
+            =f.file_field :background_image
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :profile do
+            プロフィール
+          %span.required
+            必須
+        =f.text_area :profile ,class:"user-text-area first-page-box",required:"required"
+      =f.submit '更新する', id:"adviser-create-btn"
+      = link_to "<<Back", :back, class:"back-btn"

@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      sign_in @user unless user_signed_in?
+      redirect_to user_path(@user), notice: "編集が完了しました"
+    else
+      render :edit
+    end
   end
 
   private
