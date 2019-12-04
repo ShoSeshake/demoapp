@@ -174,6 +174,7 @@
         border-left: 1px solid lightgrey;
         height: auto;
         position: relative;
+        padding-bottom: 200px;
         &__sns {
             padding: 10px 20px;
             display: flex;
@@ -251,6 +252,7 @@
                 }
             }
         }
+        &__edit,
         &__logout {
             position: absolute;
             bottom: 10px;
@@ -274,5 +276,8 @@
                     background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(260deg, #e6d70a, #ffaf19);
                 }
             }
+        }
+        &__edit {
+            bottom: 80px;
         }
     }

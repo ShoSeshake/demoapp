@@ -81,6 +81,8 @@
                   \: 
                   なし
       -if user_signed_in? && current_user == @user
+        .side-bar__edit
+          =button_to 'プロフィール編集', edit_user_path,method: :get,class:"logout-btn"
         .side-bar__logout
           =button_to 'ログアウト', destroy_user_session_path, method: :delete,class:"logout-btn"
 =render "shared/footer"
