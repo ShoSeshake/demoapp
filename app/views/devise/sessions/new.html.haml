@@ -1,17 +1,28 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.wrapper.signup-page-wrapper
+  .sigunup-header
+    .signup-logo
+      Logo
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .singup-form
+      .singup-form__field
+        .singup-form__field__title
+          ログイン
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :email do
+            メールアドレス
+          %span.required
+            必須
+        =f.email_field :email,class:"user-text-field first-page-box",required:"required", autofocus: true, autocomplete: "email"
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :password do
+            パスワード
+          %span.required
+            必須
+        =f.password_field :password ,class:"user-text-field first-page-box",required:"required", autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      =f.submit 'ログイン', id:"adviser-create-btn"

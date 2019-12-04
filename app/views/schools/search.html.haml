@@ -15,7 +15,8 @@
           -School.locations_i18n.invert.each_with_index do |c, index|
             =f.label :location_in, class:"search-sidebar__box__list__label",for:"q_location_in_#{index}" do
               =f.check_box :location_in, {multiple: true,class:"search-sidebar__box__list__checkbox"}, index, nil
-              =c[0]
+              %span.search-area-name
+                =c[0]
       .search-sidebar__box
         %span.search-sidebar__box__title
           特徴
@@ -23,7 +24,8 @@
           -Merit.all.each do |c|
             =f.label :schools_merits_merit_id_in, class:"search-sidebar__box__list__label search-sidebar__box__list__label--block",for:"q_schools_merits_merit_id_in_#{c.id}" do
               =f.check_box :schools_merits_merit_id_in, {multiple: true,class:"search-sidebar__box__list__checkbox"}, c.id, nil
-              =c.title
+              %span.search-merit-name
+                =c.title
       =f.submit '検索',id:"search-btn"
   .search-main
     .search-main__schools
