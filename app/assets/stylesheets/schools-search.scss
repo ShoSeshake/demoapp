@@ -1,0 +1,81 @@
+.search-sidebar {
+    width: 300px;
+    padding: 0 25px;
+    border-right: 1px solid lightgrey;
+    height: auto;
+    position: relative;
+    color: $grey;
+    &__name {
+        margin: 20px 0;
+        #select-order {
+            margin: 0 auto;
+            display: block;
+            padding: 0 10px;
+            width: 100%;
+            height: 40px;
+            background-color: white;
+            color: $grey;
+            border-radius: 0px;
+            border: 1px solid $grey;
+            &:focus {
+                border: 1px solid $orange;
+            }
+        }
+    }
+    &__box {
+        margin: 0 auto 20px;
+        &__title {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        &__form {
+            width: 100%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid $grey;
+            &:focus {
+                border: 1px solid $orange;
+            }
+        }
+        &__list {
+            font-size: 0;
+            &__label {
+                margin-bottom: 8px;
+                font-size: 16px;
+                width: 50%;
+                display: inline-block;
+                &--block {
+                    width: 100%;
+                    display: inline-block;
+                }
+            }
+            &__checkbox {}
+        }
+    }
+}
+
+#search-btn {
+    background-image: linear-gradient(260deg, #e6d70a, #ffaf19);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    color: white;
+    border: none;
+    transition: all 0.2s ease;
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 20px;
+    cursor: pointer;
+    &:hover {
+        background: unset;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(260deg, #e6d70a, #ffaf19);
+    }
+}
+
+.search-main {
+    width: calc(100vw - 300px);
+    padding: 20px;
+}

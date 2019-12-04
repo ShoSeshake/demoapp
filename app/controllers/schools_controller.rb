@@ -12,6 +12,20 @@ class SchoolsController < ApplicationController
   end
 
   def search
-    @schools = School.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    if params[:keyword]
+      @q = School.ransack(params[:q])
+      @schools = School.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(20)
+    elsif params[:q]
+      @schools = School.order("created_at DESC")
+      @q = School.ransack(params[:q])
+    else
+      params[:q] = { sorts: 'id desc' }
+      @schools = School.all.order("created_at DESC")
+      @q = School.ransack(params[:q])
+    end
+  end
+
+  private
+  def search_params
   end
 end
