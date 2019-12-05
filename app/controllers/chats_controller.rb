@@ -17,8 +17,7 @@ class ChatsController < ApplicationController
     if @chat.start_at < date.tomorrow
       redirect_to user_path(@user), alert: '明日以降の日程で指定してください'
     elsif @chat.save
-      current_user.update_column(ticket: (current_user.ticket -= 1))
-      binding.pry
+      current_user.update_attribute(:ticket, (current_user.ticket - 1))
       redirect_to user_path(@user), notice: "予約が完了しました。#{@chat.start_at}からです"
     else
       redirect_to user_path(@user), alert: '予約できませんでした'
@@ -26,12 +25,17 @@ class ChatsController < ApplicationController
   end
 
   def update
-    @chat.update(update_params)
-    render 'update.js.erb', notice: '準備が完了しました'
+    @chat.update_attribute(:user_peer_id, params[:chat][:user_peer_id])
+    render 'update.js.erb'
   end
 
   def video
     gon.skyway_key = ENV['SKYWAY_KEY']
+    @messages = Message.where(chat_id: @chat.id).order('id ASC')
+    @voices = Voice.where(chat_id: @chat.id).order('id ASC')
+    gon.chat_id = @chat.id
+    @message = Message.new
+    @voice = Voice.new
   end
 
   def receive
@@ -65,12 +69,6 @@ class ChatsController < ApplicationController
       :user_peer_id,
       :start_at
     ).merge(user_id: current_user.id, adviser_id: @user.id)
-  end
-
-  def update_params
-    params.require(:chat).permit(
-      :user_peer_id
-    )
   end
 
   def start_times(user)

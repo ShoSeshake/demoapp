@@ -1,29 +1,44 @@
 .container
-  .videochat__top
-    .videochat__top__left
-    #video-container.videochat__video-box
-      %video#their-video{:autoplay => ""}
-    .chat-box{"data-chat":@chat.id}
-      .chat-box__header
-        .chat-box__header__title
-          Chat
-        .chat-box__header__clock#RealtimeClock
-      .chat-box__body#content
-  / Steps
-  .videochat__bottom
-    .videochat__bottom__left
-      -if current_user.id ==  @chat.user_id
-        =form_with model: @chat, method: :patch do |f|
-          =f.hidden_field :user_peer_id
-          =f.submit '準備完了',id:"user_peer_btn", disabled:"disabled"
-      -elsif current_user.id == @chat.adviser_id
-        %form#make-call
-          %button#callbtn{disabled:"disabled"} 準備中
-      #timer
-      =form_tag new_chat_chat_review_path(@chat), method: :get,id:"end-call" do |f|
-        = button_tag '通話終了',id:"end_call_btn",disabled:"disabled"
-    .videochat__bottom__right
-      %video#my-video{:autoplay => "", :muted => "true"}
+  .videochat
+    .videochat__left
+      .chat-box{"data-chat":@chat.id}
+        .chat-box__header
+          .chat-box__header__title
+            Voice
+          .chat-box__header__clock#RealtimeClock
+        .chat-box__body#content
+          =form_with(model: @voice, url: chat_voices_path(@chat), method: :post,id:"chat-voice-form") do |f|
+            =f.text_field :text, class:"chat-voice-text"
+            =f.submit '', class:"chat-voice-btn"
+          -@voices.each do |voice|
+            =render partial:'voices/voice', locals:{voice:voice} 
+      .videochat__left__bottom
+        %video#my-video{:autoplay => "", :muted => "true"}
+    .videochat__center
+      #video-container.videochat__video-box
+        %video#their-video{:autoplay => ""}
+      .videochat__center__bottom
+        .videochat__center__bottom__right
+          -if current_user.id ==  @chat.user_id
+            =form_with model: @chat, method: :patch do |f|
+              =f.hidden_field :user_peer_id
+              =f.submit '準備完了',id:"user_peer_btn", disabled:"disabled"
+          -elsif current_user.id == @chat.adviser_id
+            %form#make-call
+              %button#callbtn{disabled:"disabled"} 準備中
+          #timer
+          =form_tag new_chat_chat_review_path(@chat), method: :get,id:"end-call" do |f|
+            = button_tag '通話終了',id:"end_call_btn",disabled:"disabled"
+    .videochat__right
+      .videochat__right__header
+        Chat
+      .videochat__right__body#messages-box
+        -@messages.each do |message|
+          =render partial:'messages/message', locals:{message:message} 
+      .videochat__right__form
+        =form_with(model: @message, url: chat_messages_path(@chat), method: :post,id:"chat-message-form") do |f|
+          =f.text_field :text, class:"chat-message-text"
+          =f.submit '送信', class:"chat-message-btn"
 .dark-background
   .notification-video
     ご利用ありがとうございました。

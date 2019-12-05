@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     collection do
       get 'receive'
     end
+    resources :voices, only: [:create]
+    resources :messages, only: [:create]
     resources :chat_reviews, only: [:new,:create]
   end
 
@@ -41,6 +43,17 @@ Rails.application.routes.draw do
       collection do
         get 'search'
       end
-    end   
+    end 
+    resources :messages, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
+      collection do
+        get 'reload', defaults: { format: 'js' }
+      end
+    end
+
+    resources :voices, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
+      collection do
+        get 'reload', defaults: { format: 'js' }
+      end
+    end
   end
 end

@@ -1,12 +1,19 @@
 .container.dark
   .chat-review
-    .chat-review__user
-      .chat-review__user__name
-        名前
-      .chat-review__user__icon
-        .user-icon
-      .chat-review__user__school
-        学校名
+    -if current_user == @chat.user
+      .chat-review__user
+        .chat-review__user__name
+          =@chat.adviser.name
+        .chat-review__user__icon{"style":"background-image:url(#{@chat.adviser.icon.url});"}
+        .chat-review__user__school
+          =@chat.adviser.school.name
+    -else
+      .chat-review__user
+        .chat-review__user__name
+          =@chat.user.name
+        .chat-review__user__icon{"style":"background-image:url(#{@chat.user.icon.url});"}
+        .chat-review__user__school
+          %br
     =form_with model: @chat_review,url:chat_chat_reviews_path, method: :post,local: true,id:"chat-review-form" do |f|
       .chat-review__score
         -10.times do |n| 

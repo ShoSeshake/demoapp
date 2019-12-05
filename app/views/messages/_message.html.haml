@@ -1,0 +1,12 @@
+-if message.user == current_user
+  .message-box{"data-message":message.id}
+    .message-box__name
+      =message.user.name
+    .message-box__text
+      =message.text
+-else
+  .other-message-box.message-box{"data-message":message.id}
+    .other-message-box__name
+      =message.user.name
+    .other-message-box__text
+      =message.text

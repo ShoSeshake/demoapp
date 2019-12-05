@@ -1,0 +1,4 @@
+<% @voices.each do |voice| %>
+$("#content").append("<%= escape_javascript(render partial: 'voices/voice',locals: {voice: voice}) %>")
+$('#content').animate({ scrollTop: $('#content')[0].scrollHeight });
+<% end %>

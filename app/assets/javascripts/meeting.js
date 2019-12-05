@@ -9,11 +9,7 @@ $(function() {
         var makeCall = $('#make-call');
         var endCall = $('#end-call');
         var linkUrl = endCall.attr('action');
-        var content = document.getElementById('content');
-
-        function  scroll()  {
-            $('#content').animate({ scrollTop:  $('#content')[0].scrollHeight });
-        }
+        // var content = document.getElementById('content');
 
         // 自分の画面の表示
         navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -120,12 +116,16 @@ $(function() {
             speech.onresult = (event) => {
                 for (let i = event.resultIndex; i < event.results.length; i++) {
                     let transcript = event.results[i][0].transcript;
+                    // if (event.results[i].isFinal) {
+                    //     var message = document.createElement("div");
+                    //     message.setAttribute("class", "video-message");
+                    //     message.innerHTML = transcript;
+                    //     content.appendChild(message);
+                    //     scroll();
+                    // }
                     if (event.results[i].isFinal) {
-                        var message = document.createElement("div");
-                        message.setAttribute("class", "video-message");
-                        message.innerHTML = transcript;
-                        content.appendChild(message);
-                        scroll();
+                        document.getElementById("chat-voice-text").value = transcript;
+                        $('#chat-voice-form').submit();
                     }
                 }
             }

@@ -1,0 +1,4 @@
+<% @messages.each do |message| %>
+$(".videochat__right__body").append("<%= escape_javascript(render partial: 'messages/message',locals: {message: message}) %>")
+$('.videochat__right__body').animate({ scrollTop: $('.videochat__right__body')[0].scrollHeight });
+<% end %>

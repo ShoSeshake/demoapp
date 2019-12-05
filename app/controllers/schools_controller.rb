@@ -3,8 +3,8 @@ class SchoolsController < ApplicationController
   before_action :header_menu
 
   def index
-    @schools = School.all
-    @advisers = User.where(adviser: true).order('id DESC').limit(10)
+    @schools = School.order('id DESC').limit(3)
+    @advisers = User.where(adviser: true).order('id DESC').limit(3)
   end
   
   def show
