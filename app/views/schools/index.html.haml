@@ -7,7 +7,7 @@
   .index
     .index__box
       .index__box__title
-        サイト名  タイトル
+        FATO
       .index__box__top
         .index__box__top__image
         .index__box__top__description
@@ -17,7 +17,7 @@
       .index__box__title
         おすすめの学校
       .index__box__flex
-        -@schools.limit(3).each do |s|
+        -@schools.each do |s|
           .index__box__flex__school{"data-school":s.id}
             =link_to school_path(s) do
               .index__box__flex__school__image{"style":"background-image:url(#{s.image.url});"}
@@ -25,7 +25,7 @@
               =link_to school_path(s), class:"index-school-links" do
                 =s.name
       .index__box__introduction
-        -@schools.limit(3).each do |s|
+        -@schools.each do |s|
           .index__box__introduction__hidden.school-introduction{id:"school-description-#{s.id}"}
             .index__box__introduction__hidden__merits
               -s.merits.each do |m|
@@ -37,7 +37,7 @@
       .index__box__title
         人気アドバイザー
       .index__box__flex
-        -@advisers.limit(3).each do |adviser|
+        -@advisers.each do |adviser|
           .index__box__flex__adviser{"data-adviser":adviser.id}
             =link_to user_path(adviser) do
               .index__box__flex__adviser__image{"style":"background-image:url(#{adviser.icon.url});"}
@@ -48,7 +48,7 @@
               =link_to school_path(adviser.school), class:"index-user-links" do
                 =adviser.school.name
       .index__box__introduction
-        -@advisers.limit(3).each do |a|
+        -@advisers.each do |a|
           .index__box__introduction__hidden.adviser-introduction{id:"adviser-description-#{a.id}"}
             .index__box__introduction__hidden__text
               =simple_format(a.profile)

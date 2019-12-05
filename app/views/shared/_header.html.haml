@@ -1,8 +1,8 @@
 .header
   .header__left
     =link_to root_path do
-      .logo
-        Logo
+      =image_tag 'header-logo.png',class:"logo"
+        
   .header__center
     =form_with(url: search_schools_path, local: :true, method: :get) do |f|
       =f.text_field :keyword,id:"header-search-form",placeholder:"学校を検索する...",autocomplete:"off"

@@ -6,6 +6,17 @@
         padding: 8px 0 8px 16px;
         height: 60px;
         width: 33%;
+        .logo {
+            height: 44px;
+            // width: 44px;
+            // background-color: black;
+            // color: white;
+            // text-align: center;
+            // line-height: 44px;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
     }
     &__center {
         position: relative;
@@ -83,18 +94,6 @@
     }
     &:hover:after {
         width: 100%;
-    }
-}
-
-.logo {
-    height: 44px;
-    width: 44px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    line-height: 44px;
-    &:hover {
-        opacity: 0.7;
     }
 }
 
