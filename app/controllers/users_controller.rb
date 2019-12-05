@@ -5,6 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @adviser_chats = Chat.where(adviser_id: @user.id).incoming.order(start_at: :asc)
+    gon.chats = []
+    @adviser_chats.each do |a|
+      gon.chats << a.start_at.strftime("%Y-%m-%d:%H%M")
+    end
   end
 
   def edit

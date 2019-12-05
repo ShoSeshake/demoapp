@@ -8,7 +8,6 @@ class ChatsController < ApplicationController
   def new
     @chat = Chat.new
     @start_times = start_times(@user)
-    @adviser_chats = Chat.where(adviser_id: @user.id).incoming.order(start_at: :asc)
     render 'new.js.erb'
   end
 
@@ -18,7 +17,8 @@ class ChatsController < ApplicationController
     if @chat.start_at < date.tomorrow
       redirect_to user_path(@user), alert: '明日以降の日程で指定してください'
     elsif @chat.save
-      current_user.update(ticket: current_user.ticket -= 1)
+      current_user.update_column(ticket: (current_user.ticket -= 1))
+      binding.pry
       redirect_to user_path(@user), notice: "予約が完了しました。#{@chat.start_at}からです"
     else
       redirect_to user_path(@user), alert: '予約できませんでした'
@@ -47,16 +47,16 @@ class ChatsController < ApplicationController
   end
 
   def chat_check 
-    date = Time.now 
-    open_time = @chat.start_at.to_datetime - Rational(5,24*60)
-    close_time = @chat.start_at.to_datetime + Rational(30,24*60)
-    if current_user != @chat.user && current_user != @chat.adviser
-      redirect_to root_path, alert: 'この部屋に入ることはできません'
-    elsif open_time > date 
-      redirect_to root_path, alert: 'チャットルームは5分前に開きます'
-    elsif close_time < date
-      redirect_to root_path, alert: 'チャットルームは既に閉じています'
-    end
+    # date = Time.now 
+    # open_time = @chat.start_at.to_datetime - Rational(5,24*60)
+    # close_time = @chat.start_at.to_datetime + Rational(30,24*60)
+    # if current_user != @chat.user && current_user != @chat.adviser
+    #   redirect_to root_path, alert: 'この部屋に入ることはできません'
+    # elsif open_time > date 
+    #   redirect_to root_path, alert: 'チャットルームは5分前に開きます'
+    # elsif close_time < date
+    #   redirect_to root_path, alert: 'チャットルームは既に閉じています'
+    # end
   end
 
   def chat_params

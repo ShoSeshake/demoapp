@@ -2,9 +2,6 @@
 .chat-new
   #calendar
   .chat-new__time
-    .hidden-box
-      -@adviser_chats.each do |c|
-        .time-box{"data-day":c.start_at.strftime("%Y-%m-%d"),"data-time":c.start_at.to_time.strftime("%H%M")}
     -@start_times.each do |s|
       .chat-new__time__list{class:"schedule-#{s[:day]}"}
         -if s[:start_time] == "none"

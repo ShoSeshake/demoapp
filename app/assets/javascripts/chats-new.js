@@ -8,6 +8,8 @@ $(function() {
     });
     $(document).on('click', '.fc-future', function() {
         var date = $(this).data('date').split('-');
+        var newDate = $(this).data('date');
+        console.log(gon.chats)
         $('#chat_start_at_1i').val(Number(date[0]));
         $('#chat_start_at_2i').val(Number(date[1]));
         $('#chat_start_at_3i').val(Number(date[2]));
@@ -21,14 +23,16 @@ $(function() {
         $('.reserve-time__min').text('');
         $('.chat-new__time__list').hide();
         $('.chat-new__time__list__btn').prop("disabled", false);
-        if ($('.time-box').data('day') == $(this).data('date')) {
-            var date = $(this).data('date');
-            var time = $('[data-day=' + date + ']')
-            time.each(function() {
-                bookedTime = $('.booked-' + $(this).data('time'))
+
+        gon.chats.forEach(function(e) {
+            var datetime = e.split(':');
+            if (newDate == datetime[0]) {
+                bookedTime = $('.booked-' + datetime[1])
                 bookedTime.prop("disabled", true);
-            })
-        }
+            }
+        })
+
+
         if ($(this).hasClass('fc-mon')) {
             $('.schedule-monday').fadeIn(500);
             $('.schedule-monday').css({
@@ -68,11 +72,12 @@ $(function() {
     });
 
     $(document).on('click', '.chat-new__time__list__btn', function() {
+
         var time = $(this).data('time').split(':');
-        $('#chat_start_at_4i').val(Number(time[0]));
-        $('#chat_start_at_5i').val(Number(time[1]));
-        $('.reserve-time__hour').text(Number(time[0]) + '時');
-        $('.reserve-time__min').text(Number(time[1]) + '分');
+        $('#chat_start_at_4i').val(time[0]);
+        $('#chat_start_at_5i').val(time[1]);
+        $('.reserve-time__hour').text(time[0] + '時');
+        $('.reserve-time__min').text(time[1] + '分');
         $('#chat-new-btn').prop("disabled", false);
     });
 
