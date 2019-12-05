@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_123013) do
+ActiveRecord::Schema.define(version: 2019_12_05_074711) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -101,6 +101,16 @@ ActiveRecord::Schema.define(version: 2019_12_02_123013) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "voices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "chat_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_voices_on_chat_id"
+    t.index ["user_id"], name: "index_voices_on_user_id"
+  end
+
   add_foreign_key "blogs", "users"
   add_foreign_key "chat_reviews", "chats"
   add_foreign_key "chat_reviews", "users"
@@ -110,4 +120,6 @@ ActiveRecord::Schema.define(version: 2019_12_02_123013) do
   add_foreign_key "schedules", "users"
   add_foreign_key "schools_merits", "merits"
   add_foreign_key "schools_merits", "schools"
+  add_foreign_key "voices", "chats"
+  add_foreign_key "voices", "users"
 end
