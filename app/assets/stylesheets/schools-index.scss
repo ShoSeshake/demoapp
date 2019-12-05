@@ -1,23 +1,21 @@
 .index-background-image {
     width: 100vw;
-    height: 600px;
+    min-height: 600px !important;
     margin-bottom: 20px;
-    color: white;
-    font-size: 40px;
-    line-height: 600px;
-    text-align: center;
+    background-size: cover;
+    background-position: center center;
 }
 
 .image-1 {
-    background: radial-gradient(rgb(0, 238, 255), rgb(191, 197, 255));
+    background-image: url("space.jpg");
 }
 
 .image-2 {
-    background: radial-gradient(rgb(14, 202, 76), rgb(140, 241, 182));
+    background-image: url("passport.jpg");
 }
 
 .image-3 {
-    background: radial-gradient(rgb(253, 97, 253), rgb(224, 199, 224));
+    background-image: url("study.jpg");
 }
 
 .slick {
@@ -47,13 +45,12 @@
         &__top {
             display: flex;
             &__image {
+                background-image: url("keyboard.jpg");
                 margin-right: 20px;
                 height: 300px;
                 min-width: 300px;
-                background-color: black;
-                text-align: center;
-                line-height: 300px;
-                color: white;
+                background-size: cover;
+                background-position: center center;
             }
             &__description {
                 width: auto;
