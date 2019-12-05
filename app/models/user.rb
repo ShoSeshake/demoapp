@@ -11,6 +11,8 @@ class User < ApplicationRecord
     has_many :chat_reviews
     has_many :blogs,                 dependent: :destroy
     has_many :schedules,              dependent: :destroy
+    has_many :messages
+    has_many :voices
 
     belongs_to :school, optional: true
 
