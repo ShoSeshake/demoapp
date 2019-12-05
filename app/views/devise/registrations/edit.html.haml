@@ -9,14 +9,14 @@
             名前
           %span.required
             必須
-        =f.text_field :name ,class:"user-text-field first-page-box",required:"required"
+        =f.text_field :name ,class:"user-text-field first-page-box"
       .singup-form__field
         .singup-form__field__title
           =f.label :email do
             メールアドレス
           %span.required
             必須
-        =f.email_field :email,class:"user-text-field first-page-box",required:"required", autocomplete: "email"
+        =f.email_field :email,class:"user-text-field first-page-box", autocomplete: "email"
       .singup-form__field
         .singup-form__field__title
           =f.label :password do

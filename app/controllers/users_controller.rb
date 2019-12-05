@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      sign_in @user unless user_signed_in?
+      sign_in(@user, bypass: true)
       redirect_to user_path(@user), notice: "編集が完了しました"
     else
       render :edit
@@ -26,15 +26,30 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(
-      :name, 
-      :email, 
-      :password, 
-      :password_confirmation, 
-      :icon, 
-      :background_image,
-      :profile
-    )
+    if @user.valid_password?(params[:user][:current_password])
+      if params[:user][:password].present? && params[:user][:password_confirmation].present?
+      params.require(:user).permit(
+        :name, 
+        :email, 
+        :password, 
+        :password_confirmation, 
+        :icon, 
+        :background_image,
+        :profile
+      )
+    else
+        params.require(:user).permit(
+          :name, 
+          :email, 
+          :icon, 
+          :background_image,
+          :profile
+        ).merge(password: params[:user][:current_password], 
+          password_confirmation: params[:user][:current_password])
+      end
+    else
+      return false
+    end
   end
 
 end

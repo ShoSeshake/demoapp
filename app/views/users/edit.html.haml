@@ -24,14 +24,21 @@
             パスワード
           %span.required
             必須
-        =f.password_field :password ,class:"user-text-field first-page-box",required:"required"
+        =f.password_field :password ,class:"user-text-field first-page-box"
       .singup-form__field
         .singup-form__field__title
           =f.label :password_confirmation do
             パスワード(確認用)
           %span.required
             必須
-        =f.password_field :password_confirmation ,class:"user-text-field first-page-box",required:"required"
+        =f.password_field :password_confirmation ,class:"user-text-field first-page-box"
+      .singup-form__field
+        .singup-form__field__title
+          =f.label :current_password do
+            現在のパスワード
+          %span.required
+            必須
+        =f.password_field :current_password ,class:"user-text-field first-page-box",required:"required", autocomplete: "current-password"
       .flex-box
         .singup-form__field
           .singup-form__field__title

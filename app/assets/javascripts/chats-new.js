@@ -68,7 +68,6 @@ $(function() {
     });
 
     $(document).on('click', '.chat-new__time__list__btn', function() {
-
         var time = $(this).data('time').split(':');
         $('#chat_start_at_4i').val(Number(time[0]));
         $('#chat_start_at_5i').val(Number(time[1]));
