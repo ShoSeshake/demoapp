@@ -17,11 +17,8 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 # どの公開鍵を利用してデプロイするか
 # set :ssh_options, auth_methods: ['publickey'],
 #                   keys: ['<ローカルPCのEC2インスタンスのSSH鍵(pem)へのパス（例：~/.ssh/key_pem.pem）>'] 
-# set :ssh_options, {
-#   keys: [~/.ssh/git_id_rsa)],
-#   forward_agent: true,
-#   auth_methods: ['publickey']
-# }
+set :ssh_options, auth_methods: ['publickey'],keys: [~/.ssh/git_id_rsa]
+
 # デプロイするブランチ（デフォルトはmasterブランチ）
 # set :branch, master
 
