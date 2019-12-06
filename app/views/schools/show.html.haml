@@ -25,7 +25,7 @@
           %br
   .school-middle
     .school-middle__name
-      この学校の人気アドバイザー
+      この学校のアドバイザー
     .school-middle__advisers
       -@school.users.limit(3).each do |a|
         .school-middle__advisers__adviser{"data-adviser":a.id}

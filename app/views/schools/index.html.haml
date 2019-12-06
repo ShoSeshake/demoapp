@@ -7,7 +7,7 @@
   .index
     .index__box
       .index__box__title
-        FATO
+        F a t o
       .index__box__top
         .index__box__top__image
         .index__box__top__description
@@ -32,10 +32,10 @@
                 =m.title
                 \/
             .index__box__introduction__hidden__text
-              =s.description
+              =simple_format(s.description)
     .index__box
       .index__box__title
-        人気アドバイザー
+        新着アドバイザー
       .index__box__flex
         -@advisers.each do |adviser|
           .index__box__flex__adviser{"data-adviser":adviser.id}
