@@ -23,7 +23,7 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 #   auth_methods: ['publickey']
 # }
 # デプロイするブランチ（デフォルトはmasterブランチ）
-set :branch, master
+# set :branch, master
 
 # デプロイ先のディレクトリ
 # set :deploy_to, "/var/www/myapp"
