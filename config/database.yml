@@ -14,8 +14,8 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: insta_database
-  username: demoapp
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: root
+  password: 
   socket: /var/lib/mysql/mysql.sock
 
 
@@ -52,5 +52,6 @@ test:
 production:
   <<: *default
   database: demoapp_production
-  username: demoapp
-  password: <%= ENV['DEMOAPP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
