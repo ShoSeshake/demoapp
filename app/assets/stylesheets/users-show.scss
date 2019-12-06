@@ -257,6 +257,15 @@
                 background: unset;
                 background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(260deg, #e6d70a, #ffaf19);
             }
+            &--grey {
+                background-image: none;
+                background-color: grey !important;
+                cursor: not-allowed;
+                &:hover {
+                    background: unset;
+                    background-color: grey !important;
+                }
+            }
         }
         &__availability {
             padding: 10px 20px;

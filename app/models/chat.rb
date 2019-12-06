@@ -15,4 +15,6 @@ class Chat < ApplicationRecord
     user_chat = Chat.where("start_at = ? and user_id =?", self.start_at, self.user_id)
     errors.add(:start_at, "既にその時間は予約があります") if adviser_chat.present? || user_chat.present?
   end
+
+  
 end

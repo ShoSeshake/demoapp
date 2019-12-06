@@ -29,4 +29,7 @@ class User < ApplicationRecord
     validates :school, presence: true, if: :adviser?
     validates :schedules, length: { minimum: 7, maximum: 7}, if: :adviser?
 
+    def use_ticket
+      self.update_attribute(:ticket, (self.ticket - 1))
+    end
 end
