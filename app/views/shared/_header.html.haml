@@ -39,7 +39,7 @@
             .header-notification__content__rush.emergency
               =link_to video_chat_path(c), class:"emergencry-chat" do
                 =icon('fas','exclamation-triangle',class:"icon-exclamation")
-                =c.start_at
+                =c.start_at.strftime("%Y年%m月%d日 %H:%M")
                 から
                 %br
                 = current_user.adviser ? c.user.name : c.adviser.name
@@ -50,7 +50,7 @@
             .header-notification__content__rush
               =link_to video_chat_path(c), class:"emergencry-chat" do
                 =icon('fas','exclamation-triangle',class:"icon-exclamation")
-                =c.start_at
+                =c.start_at.strftime("%Y年%m月%d日 %H:%M")
                 から
                 %br
                 = current_user.adviser ? c.user.name : c.adviser.name
@@ -59,7 +59,7 @@
                 現在 入室可能です
           -else
             .header-notification__content__box
-              =c.start_at
+              =c.start_at.strftime("%Y年%m月%d日 %H:%M")
               から
               %br
               = current_user.adviser ? c.user.name : c.adviser.name

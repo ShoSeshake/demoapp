@@ -238,6 +238,9 @@
                 }
             }
         }
+        &__chat {
+            text-align: center;
+        }
         &__chat-btn,
         &__blog-btn {
             background-image: linear-gradient(260deg, #e6d70a, #ffaf19);

@@ -28,7 +28,7 @@
               .main__chats__box.main__chats__box--red
                 =link_to video_chat_path(c), class:"emergencry-chat" do
                   =icon('fas','exclamation-triangle',class:"icon-exclamation")
-                  =c.start_at
+                  =c.start_at.strftime("%Y年%m月%d日 %H:%M")
                   から
                   %br
                   = current_user.adviser ? c.user.name : c.adviser.name
@@ -39,7 +39,7 @@
               .main__chats__box.main__chats__box--orange
                 =link_to video_chat_path(c), class:"emergencry-chat" do
                   =icon('fas','exclamation-triangle',class:"icon-exclamation")
-                  =c.start_at
+                  =c.start_at.strftime("%Y年%m月%d日 %H:%M")
                   から
                   %br
                   = current_user.adviser ? c.user.name : c.adviser.name
@@ -48,7 +48,7 @@
                   現在 入室可能です
             -else
               .main__chats__box
-                =c.start_at
+                =c.start_at.strftime("%Y年%m月%d日 %H:%M")
                 から
                 %br
                 = current_user.adviser ? c.user.name : c.adviser.name
@@ -99,9 +99,15 @@
           -# =button_to '記事を書く', new_blog_path, method: :get,class:"side-bar__blog-btn"
         -elsif !current_user.adviser?
           -if current_user.ticket < 1
-            .side-bar__chat-btn.side-bar__chat-btn--grey
+            .side-bar__chat
               制限回数に達しました
+            .side-bar__chat-btn.side-bar__chat-btn--grey
+              この人の話を聞きたい
           -else
+            .side-bar__chat
+              あと
+              =current_user.ticket
+              回チャットできます
             =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
         .side-bar__availability
           %span.side-bar__availability__title

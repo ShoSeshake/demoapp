@@ -18,7 +18,7 @@ class ChatsController < ApplicationController
       redirect_to user_path(@user), alert: '明日以降の日程で指定してください'
     elsif @chat.save
       current_user.use_ticket
-      redirect_to user_path(@user), notice: "予約が完了しました。#{@chat.start_at}からです"
+      redirect_to user_path(@user), notice: "予約が完了しました。#{@chat.start_at.strftime("%Y年%m月%d日 %H:%M")}からです"
     else
       redirect_to user_path(@user), alert: '予約できませんでした'
     end
@@ -48,6 +48,7 @@ class ChatsController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+    redirect_to user_path(@user) if (current_user.ticket < 0 || current_user.adviser?)
   end
 
   def chat_check 
