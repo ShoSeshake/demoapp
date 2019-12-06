@@ -21,6 +21,40 @@
                   =@user.school.name
         .main__profile__text
           =simple_format(@user.profile)
+      .main__chats
+        - if @coming_chats.present?
+          -@coming_chats.each do |c|
+            -if c.start_at < Time.now
+              .main__chats__box.main__chats__box--red
+                =link_to video_chat_path(c), class:"emergencry-chat" do
+                  =icon('fas','exclamation-triangle',class:"icon-exclamation")
+                  =c.start_at
+                  から
+                  %br
+                  = current_user.adviser ? c.user.name : c.adviser.name
+                  とチャットの時間です
+                  %br
+                  今すぐに準備をお願いします
+            -elsif  c.start_at.to_datetime < Time.now.to_datetime + Rational(5,24*60)
+              .main__chats__box.main__chats__box--orange
+                =link_to video_chat_path(c), class:"emergencry-chat" do
+                  =icon('fas','exclamation-triangle',class:"icon-exclamation")
+                  =c.start_at
+                  から
+                  %br
+                  = current_user.adviser ? c.user.name : c.adviser.name
+                  とチャットの時間です
+                  %br
+                  現在 入室可能です
+            -else
+              .main__chats__box
+                =c.start_at
+                から
+                %br
+                = current_user.adviser ? c.user.name : c.adviser.name
+                とチャットの予定があります
+        - else
+          チャットの予定はございません
       -# -if @user.adviser?
       -#   .main__blog
       -#     .main__blog__title
@@ -60,10 +94,11 @@
           =icon('fab','instagram',class:"icon-instagram")
         .side-bar__sns__youtube
           =icon('fab','youtube',class:"icon-youtube")
-      -if @user.adviser? && current_user == @user
-        =button_to '記事を書く', new_blog_path, method: :get,class:"side-bar__blog-btn"
-      -elsif @user.adviser? && (current_user.adviser? == false)
-        =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
+      -if @user.adviser?
+        -if current_user == @user
+          -# =button_to '記事を書く', new_blog_path, method: :get,class:"side-bar__blog-btn"
+        -elsif !current_user.adviser?
+          =button_to 'この人の話を聞きたい', new_user_chat_path(@user), remote: true,method: :get,class:"side-bar__chat-btn"
         .side-bar__availability
           %span.side-bar__availability__title
             チャット可能時間
@@ -78,8 +113,7 @@
                   =s.end_time.strftime('%H:%M')
                 -else
                   =s.day_i18n
-                  \: 
-                  なし
+                  \: なし
       -if user_signed_in? && current_user == @user
         .side-bar__edit
           =button_to 'プロフィール編集', edit_user_path,method: :get,class:"logout-btn"

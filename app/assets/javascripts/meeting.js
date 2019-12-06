@@ -9,7 +9,6 @@ $(function() {
         var makeCall = $('#make-call');
         var endCall = $('#end-call');
         var linkUrl = endCall.attr('action');
-        // var content = document.getElementById('content');
 
         // 自分の画面の表示
         navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -64,7 +63,6 @@ $(function() {
         function setupCallEventHandlers(call) {
 
             existingCall = call;
-
             // 相手のカメラ映像・マイク音声を受信した際に発火します。
             // 取得したStreamオブジェクトをvideo要素にセットします。
             call.on('stream', (stream) => {
@@ -101,7 +99,6 @@ $(function() {
         }
 
         function speechToText() {
-
             // 文字起こし機能
             SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
             const speech = new SpeechRecognition();
@@ -117,17 +114,13 @@ $(function() {
             speech.onresult = (event) => {
                 for (let i = event.resultIndex; i < event.results.length; i++) {
                     var transcript = event.results[i][0].transcript;
-
                     if (event.results[i].isFinal) {
                         $('#chat-voice-text').val(transcript);
-
                         Rails.fire($('#chat-voice-form')[0], 'submit');
-
                     }
                 }
             }
         }
-
         var timeUp = function() {
             // タイムアップ後のアクションをここで定義
             location.href = linkUrl;
@@ -144,6 +137,5 @@ $(function() {
                 labels: ['Minutes', 'Seconds']
             });
         }
-
     }
 }, false);

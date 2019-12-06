@@ -132,6 +132,28 @@
                 }
             }
         }
+        &__chats {
+            width: 700px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            border-bottom: 1px solid lightgrey;
+            &__box {
+                padding: 10px;
+                border-bottom: 1px dashed lightgrey;
+                &--orange {
+                    background-color: $orange;
+                    border-bottom: none;
+                    color: white;
+                }
+                &--red {
+                    background-color: rgb(226, 66, 66);
+                    border-bottom: none;
+                }
+                .emergencry-chat {
+                    color: white;
+                }
+            }
+        }
         &__blog {
             width: 700px;
             margin: 0 auto;
