@@ -26,7 +26,7 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 # set :branch, master
 
 # デプロイ先のディレクトリ
-# set :deploy_to, "/var/www/myapp"
+set :deploy_to, "/var/www/public/demoapp"
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
