@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     collection do
       get 'receive'
     end
-    resources :voices, only: [:create]
+    resources :voices, only: :create, defaults: { format: 'js' }
     resources :messages, only: [:create]
     resources :chat_reviews, only: [:new,:create]
   end

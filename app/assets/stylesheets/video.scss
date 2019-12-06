@@ -16,29 +16,32 @@
         margin: 0 15px;
         &__bottom {
             width: 100%;
-            display: flex;
-            #end_call_btn,
-            #user_peer_btn,
-            button {
-                height: 50px;
-                display: block;
-                border: $orange solid 1px;
-                color: $orange;
-                font-size: 20px;
-                width: 120px;
-                text-align: center;
-                padding: 10px 0;
-                border-radius: 5px;
-                background-color: white;
-                &:hover {
-                    background-color: $orange;
-                    color: white;
-                }
-                &:disabled {
-                    border: lightgrey solid 1px;
-                    background-color: lightgrey;
-                    color: white;
-                    cursor: not-allowed;
+            &__right {
+                justify-content: space-between;
+                display: flex;
+                #end_call_btn,
+                #user_peer_btn,
+                button {
+                    height: 50px;
+                    display: block;
+                    border: $orange solid 1px;
+                    color: $orange;
+                    font-size: 20px;
+                    width: 120px;
+                    text-align: center;
+                    padding: 10px 0;
+                    border-radius: 5px;
+                    background-color: white;
+                    &:hover {
+                        background-color: $orange;
+                        color: white;
+                    }
+                    &:disabled {
+                        border: lightgrey solid 1px;
+                        background-color: lightgrey;
+                        color: white;
+                        cursor: not-allowed;
+                    }
                 }
             }
         }
@@ -180,44 +183,6 @@
     background-color: black;
 }
 
-// .videochat__bottom {
-//     width: 100%;
-//     display: flex;
-//     justify-content: space-between;
-//     &__left {
-//         width: 360px;
-//         height: 270px;
-//         margin-right: 15px;
-//     }
-//     &__right {
-//         width: 100%;
-//         display: flex;
-//         #end_call_btn,
-//         #user_peer_btn,
-//         button {
-//             height: 50px;
-//             display: block;
-//             border: $orange solid 1px;
-//             color: $orange;
-//             font-size: 20px;
-//             width: 120px;
-//             text-align: center;
-//             padding: 10px 0;
-//             border-radius: 5px;
-//             background-color: white;
-//             &:hover {
-//                 background-color: $orange;
-//                 color: white;
-//             }
-//             &:disabled {
-//                 border: lightgrey solid 1px;
-//                 background-color: lightgrey;
-//                 color: white;
-//                 cursor: not-allowed;
-//             }
-//         }
-//     }
-// }
 #my-video {
     background-color: darkgrey;
     width: 360px;
@@ -226,7 +191,9 @@
 }
 
 #timer {
-    width: 40%;
+    margin-top: 20px;
+    font-size: 30px;
+    width: 100%;
     text-align: center;
 }
 
@@ -258,5 +225,5 @@
 }
 
 #chat-voice-form {
-    // display:none;
+    display: none;
 }

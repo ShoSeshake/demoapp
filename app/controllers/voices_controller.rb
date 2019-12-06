@@ -7,7 +7,7 @@ class VoicesController < ApplicationController
     if @voice.save
       render "voices/create.js.erb"
     else
-      
+
     end
   end
   

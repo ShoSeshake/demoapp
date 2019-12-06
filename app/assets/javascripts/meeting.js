@@ -71,7 +71,7 @@ $(function() {
                 addVideo(call, stream);
                 $('#end_call_btn').prop("disabled", false);
                 if ($('#callbtn')) {
-                    $('#callbtn').prop("disabled", false);
+                    $('#callbtn').prop("disabled", true);
                 }
                 // 文字起こし関数を呼び出し
                 speechToText();
@@ -101,6 +101,7 @@ $(function() {
         }
 
         function speechToText() {
+
             // 文字起こし機能
             SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
             const speech = new SpeechRecognition();
@@ -115,17 +116,13 @@ $(function() {
             // 音声が入った時に発火
             speech.onresult = (event) => {
                 for (let i = event.resultIndex; i < event.results.length; i++) {
-                    let transcript = event.results[i][0].transcript;
-                    // if (event.results[i].isFinal) {
-                    //     var message = document.createElement("div");
-                    //     message.setAttribute("class", "video-message");
-                    //     message.innerHTML = transcript;
-                    //     content.appendChild(message);
-                    //     scroll();
-                    // }
+                    var transcript = event.results[i][0].transcript;
+
                     if (event.results[i].isFinal) {
-                        document.getElementById("chat-voice-text").value = transcript;
-                        $('#chat-voice-form').submit();
+                        $('#chat-voice-text').val(transcript);
+
+                        Rails.fire($('#chat-voice-form')[0], 'submit');
+
                     }
                 }
             }
