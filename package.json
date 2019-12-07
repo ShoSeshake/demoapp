@@ -2,9 +2,13 @@
     "name": "demoapp",
     "private": true,
     "dependencies": {
-        "@rails/webpacker": "^4.2.0"
+        "@rails/webpacker": "^4.2.0",
+        "babel-loader": "7",
+        "babel-preset-env": "^1.7.0",
+        "webpack-cli": "^3.3.10"
     },
     "devDependencies": {
+        "@babel/preset-env": "^7.7.5",
         "webpack-dev-server": "^3.9.0"
     },
     "engines": {
