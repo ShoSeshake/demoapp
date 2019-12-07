@@ -12,7 +12,7 @@ server '34.85.65.193', user: "shoseshake", roles: %w{app db web}
 
 # SSHの設定
 set :ssh_options, {
-  keys: %w(~/.ssh/git_id_rsa),
+  keys: %w(~/.ssh/id_rsa),
   forward_agent: true,
   auth_methods: %w(publickey)
 }
