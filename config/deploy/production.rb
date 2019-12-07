@@ -12,7 +12,6 @@ server '34.85.65.193',
 user: "shoseshake",
 roles: %w{app db web},
 ssh_options: {
-  port: 80,
   keys: %w(/home/shoseshake/.ssh/id_rsa),
   forward_agent: true
   # auth_methods: %w(publickey)
