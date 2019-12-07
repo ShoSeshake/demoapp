@@ -7,15 +7,16 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server '34.85.65.193', user: "shoseshake", roles: %w{app db web}
-
-
-# # SSHの設定
-# set :ssh_options, {
-#   keys: %w(~/.ssh/id_rsa),
-#   forward_agent: true,
-#   auth_methods: %w(publickey)
-# }
+# SSHの設定
+server '34.85.65.193',
+user: "shoseshake",
+roles: %w{app db web},
+ssh_options: {
+  port: 80,
+  keys: %w(~/.ssh/id_rsa),
+  forward_agent: true
+  # auth_methods: %w(publickey)
+}
 # server '34.85.65.193', user: 'ec2-user', roles: %w{app db web}
 
 
