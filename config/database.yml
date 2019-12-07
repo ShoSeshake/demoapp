@@ -16,7 +16,6 @@ default: &default
   database: insta_database
   username: root
   password: 
-  socket: /var/lib/mysql/mysql.sock
 
 
 development:
