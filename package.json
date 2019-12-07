@@ -10,7 +10,7 @@
     "engines": {
         "yarn": "1.x"
     },
-    "scripts": {
-        "postinstall": "cd ./frontend && yarn && yarn run webpack --config ./webpack.config.js --mode production"
-    }
+    // "scripts": {
+    //     "postinstall": "cd ./frontend && yarn && yarn run webpack --config ./webpack.config.js --mode production"
+    // }
 }
