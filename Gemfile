@@ -77,9 +77,12 @@ group :production do
 end
 
 # 画像アップロード系
-gem 'fog-aws'
+# gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'carrierwave-google-storage'
+gem "google-api-client"
+gem "mime-types"
 
 # haml用
 gem 'haml-rails'
