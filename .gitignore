@@ -33,3 +33,6 @@
 yarn-debug.log*
 .yarn-integrity
 /public/uploads/
+config/secrets.yml
+config/secrets.yml
+config/secrets.yml

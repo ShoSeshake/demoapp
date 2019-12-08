@@ -80,6 +80,7 @@ end
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
+
 # haml用
 gem 'haml-rails'
 # font-awesome
