@@ -8,16 +8,16 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 # SSHの設定
-server '34.85.65.193',
-user: "shoseshake",
-roles: %w{app db web},
+server '34.85.65.193',user: "shoseshake", roles: %w{app db web}
 
-ssh_options: {
-  port: 80,
-  keys: %w(/home/shoseshake/.ssh/id_rsa),
-  forward_agent: true,
-  auth_methods: %w(publickey)
-}
+
+# set :ssh_options, {
+#   port: 80,
+#   keys: %w(~/.ssh/id_rsa),
+#   forward_agent: true,
+#   user: 'shoseshake'
+#   # auth_methods: %w(publickey)
+# }
 # server '34.85.65.193', user: 'ec2-user', roles: %w{app db web}
 
 
