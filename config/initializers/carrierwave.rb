@@ -21,6 +21,9 @@ require 'carrierwave/storage/file'
 # end
 
 CarrierWave.configure do |config|
+  if Rails.env.development?
+    config.storage = :file
+  elsif Rails.env.production?
   config.storage                             = :gcloud
   config.gcloud_bucket                       = 'fato-bucket'
   config.gcloud_bucket_is_public             = true
@@ -35,4 +38,5 @@ CarrierWave.configure do |config|
     gcloud_project: 'demoapp-260401',
     gcloud_keyfile: Rails.application.credentials.gcs_app_name_key.to_json
   }
+  end
 end
