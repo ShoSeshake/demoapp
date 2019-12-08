@@ -122,3 +122,5 @@ gem 'google-cloud-speech'
 # カレンダー
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'google-cloud-storage'
