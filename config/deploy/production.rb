@@ -10,7 +10,7 @@
 # SSHの設定
 server '34.85.65.193',
 user: "shoseshake",
-roles: %w{app db web}
+roles: %w{app db web},
 
 ssh_options: {
   keys: %w(/home/shoseshake/.ssh/id_rsa),
