@@ -42,13 +42,20 @@
             &__top {
                 display: flex;
                 &__image {
+                    position: relative;
                     // background-image: url("logo.png");
                     height: 250px;
                     min-width: 250px;
                     margin-right: 40px;
                     .index-logo {
-                        height: 250px;
-                        // width: 250px;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        bottom: 0;
+                        margin: auto auto;
+                        // height: 250px;
+                        width: 250px;
                     }
                     // background-size: cover;
                     // background-position: center center;
