@@ -21,6 +21,11 @@ class SignupsController < ApplicationController
   end
 
   def create
+    logger.debug("[debug] signups#icreate")
+    logger.info("[info] signups#icreate")
+    logger.warn("[warn] signups#icreate")
+    logger.error("[error] signups#icreate")
+    logger.fatal("[fatal] signups#icreate")
     @user =User.new(user_params)
     if @user.save
       sign_in @user unless user_signed_in?
