@@ -11,6 +11,8 @@
 server '34.85.65.193',
 user: "shoseshake",
 roles: %w{app db web}
+
+set :ssh_options, keys: '~/.ssh/id_rsa' ,port: 80
 # ssh_options: {
 #   keys: %w(/home/shoseshake/.ssh/id_rsa),
 #   forward_agent: true
