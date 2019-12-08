@@ -6,18 +6,15 @@
     background-position: center center;
 }
 
-.image-1 {
-    background-image: url("space.jpg");
-}
-
-.image-2 {
-    background-image: url("passport.jpg");
-}
-
-.image-3 {
-    background-image: url("study.jpg");
-}
-
+// .image-1 {
+// background-image: url("space.jpg");
+// }
+// .image-2 {
+//     background-image: url("passport.jpg");
+// }
+// .image-3 {
+//     background-image: url("study.jpg");
+// }
 .slick {
     overflow: hidden;
     position: relative;
@@ -45,7 +42,7 @@
         &__top {
             display: flex;
             &__image {
-                background-image: url("logo.png");
+                // background-image: url("logo.png");
                 margin-right: 20px;
                 height: 250px;
                 min-width: 250px;
