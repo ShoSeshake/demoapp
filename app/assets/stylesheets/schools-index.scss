@@ -1,118 +1,122 @@
-.index-background-image {
-    width: 100vw;
-    min-height: 600px !important;
-    margin-bottom: 20px;
-    background-size: cover;
-    background-position: center center;
-}
-
-// .image-1 {
-// background-image: url("space.jpg");
-// }
-// .image-2 {
-//     background-image: url("passport.jpg");
-// }
-// .image-3 {
-//     background-image: url("study.jpg");
-// }
-.slick {
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-}
-
-.index {
-    padding-bottom: 30px;
-    margin: 0 auto;
-    width: 800px;
-    &__box {
+    .index-background-image {
+        width: 100vw;
+        min-height: 600px !important;
+        margin-bottom: 20px;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    // .image-1 {
+    // background-image: url("space.jpg");
+    // }
+    // .image-2 {
+    //     background-image: url("passport.jpg");
+    // }
+    // .image-3 {
+    //     background-image: url("study.jpg");
+    // }
+    .slick {
+        overflow: hidden;
         position: relative;
-        margin-bottom: 30px;
+        cursor: pointer;
+    }
+    
+    .index {
         padding-bottom: 30px;
-        border-bottom: 1px solid lightgrey;
-        &:last-child {
-            margin-bottom: 0px;
-            border-bottom: none;
-        }
-        &__title {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-        &__top {
-            display: flex;
-            &__image {
-                // background-image: url("logo.png");
-                margin-right: 20px;
-                height: 250px;
-                min-width: 250px;
-                background-size: cover;
-                background-position: center center;
+        margin: 0 auto;
+        width: 800px;
+        &__box {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid lightgrey;
+            &:last-child {
+                margin-bottom: 0px;
+                border-bottom: none;
             }
-            &__description {
-                width: auto;
-                word-break: break-all;
+            &__title {
+                text-align: center;
+                font-size: 30px;
+                margin-bottom: 20px;
             }
-        }
-        &__flex {
-            display: flex;
-            justify-content: space-between;
-            &__school,
-            &__adviser {
-                width: 250px;
+            &__top {
+                display: flex;
                 &__image {
-                    position: relative;
-                    height: 150px;
-                    width: 150px;
-                    margin: 0 auto 10px;
-                    border-radius: 50%;
-                    overflow: hidden;
-                    background-size: cover;
-                    background-position: center center;
+                    // background-image: url("logo.png");
+                    height: 250px;
+                    min-width: 250px;
+                    margin-right: 40px;
+                    .index-logo {
+                        height: 250px;
+                        // width: 250px;
+                    }
+                    // background-size: cover;
+                    // background-position: center center;
                 }
-                &__name {
-                    margin: 15px 0;
-                    text-align: center;
+                &__description {
+                    width: auto;
+                    word-break: break-all;
                 }
-                &__text {
-                    text-align: center;
+            }
+            &__flex {
+                display: flex;
+                justify-content: space-between;
+                &__school,
+                &__adviser {
+                    width: 250px;
+                    &__image {
+                        position: relative;
+                        height: 150px;
+                        width: 150px;
+                        margin: 0 auto 10px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        background-size: cover;
+                        background-position: center center;
+                    }
+                    &__name {
+                        margin: 15px 0;
+                        text-align: center;
+                    }
+                    &__text {
+                        text-align: center;
+                    }
+                }
+            }
+            &__introduction {
+                height: 100px;
+                overflow: scroll;
+                &__hidden {
+                    display: none;
+                    padding: 20px 20px 0;
+                    &__merits {
+                        margin-bottom: 10px;
+                        font-size: 15px;
+                    }
+                    &__text {
+                        font-size: 18px;
+                    }
                 }
             }
         }
-        &__introduction {
-            height: 100px;
-            overflow: scroll;
-            &__hidden {
-                display: none;
-                padding: 20px 20px 0;
-                &__merits {
-                    margin-bottom: 10px;
-                    font-size: 15px;
-                }
-                &__text {
-                    font-size: 18px;
-                }
-            }
+    }
+    
+    a.index-user-links,
+    a.index-school-links {
+        color: $orange;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        &:after {
+            content: '';
+            border-bottom: 1px $orange solid;
+            position: absolute;
+            width: 0;
+            transition: width 0.5s;
+            bottom: 0;
+            left: 0;
+        }
+        &:hover:after {
+            width: 100%;
         }
     }
-}
-
-a.index-user-links,
-a.index-school-links {
-    color: $orange;
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    &:after {
-        content: '';
-        border-bottom: 1px $orange solid;
-        position: absolute;
-        width: 0;
-        transition: width 0.5s;
-        bottom: 0;
-        left: 0;
-    }
-    &:hover:after {
-        width: 100%;
-    }
-}
