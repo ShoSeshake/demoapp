@@ -7,15 +7,15 @@
 }
 
 .image-1 {
-    background-image: assets-url("space.jpg");
+    background-image: url("space.jpg");
 }
 
 .image-2 {
-    background-image: assets-url("passport.jpg");
+    background-image: url("passport.jpg");
 }
 
 .image-3 {
-    background-image: assets-url("study.jpg");
+    background-image: url("study.jpg");
 }
 
 .slick {
@@ -45,7 +45,7 @@
         &__top {
             display: flex;
             &__image {
-                background-image: assets-url("logo.png");
+                background-image: url("logo.png");
                 margin-right: 20px;
                 height: 250px;
                 min-width: 250px;
