@@ -36,3 +36,4 @@ yarn-debug.log*
 config/secrets.yml
 config/secrets.yml
 config/secrets.yml
+condig/gcs.json
