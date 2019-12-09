@@ -36,7 +36,7 @@ CarrierWave.configure do |config|
   
   config.gcloud_credentials = {
     gcloud_project: 'demoapp-260401',
-    gcloud_keyfile: Rails.application.credentials.gcs_app_name_key.dump
+    gcloud_keyfile: Rails.application.credentials.gcs_app_name_key.to_json
   }
   end
 end
