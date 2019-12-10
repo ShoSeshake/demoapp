@@ -26,7 +26,7 @@ class User < ApplicationRecord
     validates :name, :email, :password, :password_confirmation, :profile, :icon, presence: true
     validates :name, :email, :profile, :icon, presence: true, on: :update, unless: :encrypted_password_changed?
     validates :ticket, presence: true, unless: :adviser?
-    validates :school, presence: true, if: :adviser?
+    validates :area, presence: true, if: :adviser?
     validates :schedules, length: { minimum: 7, maximum: 7}, if: :adviser?
 
     def use_ticket
