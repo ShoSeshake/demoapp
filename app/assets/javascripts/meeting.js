@@ -30,8 +30,8 @@ $(function() {
             .then(function(stream) {
                 myVideo.srcObject = stream;
                 localStream = stream;
-                video.onloadedmetadata = function(e) {
-                    video.play();
+                myVideo.onloadedmetadata = function(e) {
+                    myVideo.play();
                 };
             })
             .catch(function(err) {
