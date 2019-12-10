@@ -4,8 +4,8 @@
       =image_tag 'header-logo.png',class:"logo"
         
   .header__center
-    =form_with(url: search_schools_path, local: :true, method: :get) do |f|
-      =f.text_field :keyword,id:"header-search-form",placeholder:"学校を検索する...",autocomplete:"off"
+    =form_with(url: search_areas_path, local: :true, method: :get) do |f|
+      =f.text_field :keyword,id:"header-search-form",placeholder:"検索する...",autocomplete:"off"
       = button_tag type: 'submit', id:"header-search-btn"  do
         =icon('fas', 'search')
   %ul.header__right

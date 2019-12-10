@@ -62,7 +62,7 @@ class SignupsController < ApplicationController
       :icon, 
       :background_image,
       :profile,
-      :school_id,
+      :area_id,
       schedules_attributes:[:id,:day,:availability,:start_time, :end_time]
     ).merge(adviser: 1)
   end

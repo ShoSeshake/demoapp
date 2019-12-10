@@ -1,4 +1,4 @@
 class AreasMerit < ApplicationRecord
   belongs_to :area
-  belomgs_to :merit
+  belongs_to :merit
 end

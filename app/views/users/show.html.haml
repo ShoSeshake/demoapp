@@ -16,9 +16,9 @@
             .main__profile__top__box__name
               =@user.name
             - if @user.adviser?
-              .main__profile__top__box__school
-                =link_to school_path(@user.school),class:"user-school-link" do
-                  =@user.school.name
+              .main__profile__top__box__area
+                =link_to area_path(@user.area),class:"user-area-link" do
+                  =@user.area.name
         .main__profile__text
           =simple_format(@user.profile)
       .main__chats

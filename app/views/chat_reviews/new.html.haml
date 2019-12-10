@@ -5,14 +5,14 @@
         .chat-review__user__name
           =@chat.adviser.name
         .chat-review__user__icon{"style":"background-image:url(#{@chat.adviser.icon.url});"}
-        .chat-review__user__school
-          =@chat.adviser.school.name
+        .chat-review__user__area
+          =@chat.adviser.area.name
     -else
       .chat-review__user
         .chat-review__user__name
           =@chat.user.name
         .chat-review__user__icon{"style":"background-image:url(#{@chat.user.icon.url});"}
-        .chat-review__user__school
+        .chat-review__user__area
           %br
     =form_with model: @chat_review,url:chat_chat_reviews_path, method: :post,local: true,id:"chat-review-form" do |f|
       .chat-review__score

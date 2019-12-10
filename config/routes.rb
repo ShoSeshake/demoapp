@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users
-  root to: 'schools#index'
+  root to: 'areas#index'
 
-  resources :schools, only: [:index, :show] do
+  resources :areas, only: [:index, :show] do
     collection do
       get 'search'
     end
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :schools, except: [:index,:new,:destroy,:edit,:create,:show,:update] do
+    resources :areas, except: [:index,:new,:destroy,:edit,:create,:show,:update] do
       collection do
         get 'search'
       end

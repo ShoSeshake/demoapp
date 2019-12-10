@@ -16,20 +16,20 @@
           %br ですから、説明文を読み取るとい うことは、その作者が何について、どのように、説明している文章かを把握する ことが大切です。 論説文も同じです。 筆者が主張したいことは何かを読み取るこ とが中心です。
     .index__box
       .index__box__title
-        おすすめの学校
+        おすすめの都市
       .index__box__flex
-        -@schools.each do |s|
-          .index__box__flex__school{"data-school":s.id}
-            =link_to school_path(s) do
-              .index__box__flex__school__image{"style":"background-image:url(#{s.image.url});"}
-            .index__box__flex__school__name
-              =link_to school_path(s), class:"index-school-links" do
+        -@areas.each do |area|
+          .index__box__flex__area{"data-area":area.id}
+            =link_to area_path(area) do
+              .index__box__flex__area__image{"style":"background-image:url(#{area.image.url});"}
+            .index__box__flex__area__name
+              =link_to area_path(area), class:"index-area-links" do
                 =s.name
       .index__box__introduction
-        -@schools.each do |s|
-          .index__box__introduction__hidden.school-introduction{id:"school-description-#{s.id}"}
+        -@areas.each do |area|
+          .index__box__introduction__hidden.area-introduction{id:"area-description-#{area.id}"}
             .index__box__introduction__hidden__merits
-              -s.merits.each do |m|
+              -area.merits.each do |m|
                 =m.title
                 \/
             .index__box__introduction__hidden__text
@@ -46,8 +46,8 @@
               =link_to user_path(adviser), class:"index-user-links" do
                 =adviser.name
             .index__box__flex__adviser__text
-              =link_to school_path(adviser.school), class:"index-user-links" do
-                =adviser.school.name
+              =link_to area_path(adviser.area), class:"index-user-links" do
+                =adviser.area.name
       .index__box__introduction
         -@advisers.each do |a|
           .index__box__introduction__hidden.adviser-introduction{id:"adviser-description-#{a.id}"}

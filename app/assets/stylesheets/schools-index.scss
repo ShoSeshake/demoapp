@@ -6,15 +6,6 @@
         background-position: center center;
     }
     
-    // .image-1 {
-    // background-image: url("space.jpg");
-    // }
-    // .image-2 {
-    //     background-image: url("passport.jpg");
-    // }
-    // .image-3 {
-    //     background-image: url("study.jpg");
-    // }
     .slick {
         overflow: hidden;
         position: relative;
@@ -43,7 +34,6 @@
                 display: flex;
                 &__image {
                     position: relative;
-                    // background-image: url("logo.png");
                     height: 250px;
                     min-width: 250px;
                     margin-right: 40px;
@@ -54,11 +44,8 @@
                         left: 0;
                         bottom: 0;
                         margin: auto auto;
-                        // height: 250px;
                         width: 250px;
                     }
-                    // background-size: cover;
-                    // background-position: center center;
                 }
                 &__description {
                     width: auto;
@@ -68,7 +55,7 @@
             &__flex {
                 display: flex;
                 justify-content: space-between;
-                &__school,
+                &__area,
                 &__adviser {
                     width: 250px;
                     &__image {
@@ -109,7 +96,7 @@
     }
     
     a.index-user-links,
-    a.index-school-links {
+    a.index-area-links {
         color: $orange;
         position: relative;
         display: inline-block;

@@ -1,7 +1,7 @@
-.school-box
-  =link_to school_path(s), class:"school-box__link" do
-    .school-box__image{"style":"background-image:url(#{s.image.url});"}
-    .school-box__name
+.area-box
+  =link_to area_path(area), class:"area-box__link" do
+    .area-box__image{"style":"background-image:url(#{area.image.url});"}
+    .area-box__name
       =s.name
-    .school-box__description
+    .area-box__description
       =s.description

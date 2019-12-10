@@ -120,7 +120,7 @@
     width: calc(100vw - 300px);
     padding: 20px;
     overflow: scroll;
-    &__schools {
+    &__areas {
         width: 900px;
         margin: 40px auto 30px;
         &__grid {
@@ -131,7 +131,7 @@
     }
 }
 
-.school-box {
+.area-box {
     padding: 10px;
     width: 200px;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
