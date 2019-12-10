@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.text    :profile           , null: false
       t.integer :ticket
       t.string :encrypted_password, null: false
-      t.integer :school_id,          null: true
+      t.integer :area_id,          null: true
       t.boolean :adviser,           default: false
       t.boolean :admin,             default: false
 

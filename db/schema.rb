@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_084953) do
+ActiveRecord::Schema.define(version: 2019_12_10_123820) do
+
+  create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "image"
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_areas_on_ancestry"
+    t.index ["name"], name: "index_areas_on_name"
+  end
+
+  create_table "areas_merits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "area_id", null: false
+    t.bigint "merit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_areas_merits_on_area_id"
+    t.index ["merit_id"], name: "index_areas_merits_on_merit_id"
+  end
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -73,24 +93,6 @@ ActiveRecord::Schema.define(version: 2019_12_05_084953) do
     t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
-  create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "image", null: false
-    t.text "description", null: false
-    t.integer "location", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "schools_merits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "school_id", null: false
-    t.bigint "merit_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["merit_id"], name: "index_schools_merits_on_merit_id"
-    t.index ["school_id"], name: "index_schools_merits_on_school_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -99,7 +101,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_084953) do
     t.text "profile", null: false
     t.integer "ticket"
     t.string "encrypted_password", null: false
-    t.integer "school_id"
+    t.integer "area_id"
     t.boolean "adviser", default: false
     t.boolean "admin", default: false
     t.string "reset_password_token"
@@ -121,6 +123,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_084953) do
     t.index ["user_id"], name: "index_voices_on_user_id"
   end
 
+  add_foreign_key "areas_merits", "areas"
+  add_foreign_key "areas_merits", "merits"
   add_foreign_key "blogs", "users"
   add_foreign_key "chat_reviews", "chats"
   add_foreign_key "chat_reviews", "users"
@@ -130,8 +134,6 @@ ActiveRecord::Schema.define(version: 2019_12_05_084953) do
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
   add_foreign_key "schedules", "users"
-  add_foreign_key "schools_merits", "merits"
-  add_foreign_key "schools_merits", "schools"
   add_foreign_key "voices", "chats"
   add_foreign_key "voices", "users"
 end

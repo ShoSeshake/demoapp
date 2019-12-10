@@ -14,7 +14,7 @@ class User < ApplicationRecord
     has_many :messages
     has_many :voices
 
-    belongs_to :school, optional: true
+    belongs_to :area, optional: true
 
     accepts_nested_attributes_for :schedules
 
