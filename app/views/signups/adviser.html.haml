@@ -1,7 +1,6 @@
 .wrapper.signup-page-wrapper
   .sigunup-header
-    .signup-logo
-      Logo
+    =image_tag 'header-logo.png',class:"signup-logo"
   =form_with(model: @user, url: adviser_create_signups_path, method: :post,local:true) do |f|
     .singup-form#signup-page1
       .singup-form__field

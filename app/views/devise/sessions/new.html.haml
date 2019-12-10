@@ -1,7 +1,6 @@
 .wrapper.signup-page-wrapper
   .sigunup-header
-    .signup-logo
-      Logo
+    =image_tag 'header-logo.png',class:"signup-logo"
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .singup-form
       .singup-form__field
@@ -22,7 +21,7 @@
             必須
         =f.password_field :password ,class:"user-text-field first-page-box",required:"required", autocomplete: "current-password"
       - if devise_mapping.rememberable?
-        .field
+        .singup-form__field
           = f.check_box :remember_me
           = f.label :remember_me
       =f.submit 'ログイン', id:"adviser-create-btn"

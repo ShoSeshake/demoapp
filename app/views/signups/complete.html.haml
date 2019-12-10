@@ -1,16 +1,15 @@
 .wrapper.signup-page-wrapper
   .sigunup-header
-    .signup-logo
-      Logo
-    .singup-form
-      .singup-form__complete
-        ありがとうございます。
-        %br
-        %br ユーザー登録が完了しました。
-        %br
-        %br
-        -unless current_user.adviser?
-          10回までチャットをすることができます。
-      .singup-form__complete__top-btn
-        =link_to root_path, class:"signup-link" do
-          トップページへ戻る
+    =image_tag 'header-logo.png',class:"signup-logo"
+  .singup-form
+    .singup-form__complete
+      ありがとうございます。
+      %br
+      %br ユーザー登録が完了しました。
+      %br
+      %br
+      -unless current_user.adviser?
+        10回までチャットをすることができます。
+    .singup-form__complete__top-btn
+      =link_to root_path, class:"signup-link" do
+        トップページへ戻る

@@ -18,11 +18,6 @@
     .signup-logo {
         margin: 20px;
         height: 60px;
-        width: 180px;
-        background-color: black;
-        color: white;
-        line-height: 60px;
-        text-align: center;
     }
 }
 
@@ -171,18 +166,22 @@ span.optional {
 
 #adviser-next-btn,
 #adviser-create-btn {
-    text-align: center;
-    width: 150px;
+    background-image: linear-gradient(260deg, #e6d70a, #ffaf19);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    color: white;
+    border: none;
+    transition: all 0.2s ease;
     display: block;
     margin: 10px auto;
-    border: 1px $orange solid;
-    color: $orange;
-    height: 40px;
-    line-height: 40px;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 20px;
     cursor: pointer;
     &:hover {
-        background-color: $orange;
-        color: white;
+        background: unset;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(260deg, #e6d70a, #ffaf19);
     }
 }
 
@@ -198,7 +197,7 @@ span.optional {
     margin: 0 auto 20px;
 }
 
-#user-school-select {
+#user-area-select {
     background-color: white;
     border-radius: 0;
 }
