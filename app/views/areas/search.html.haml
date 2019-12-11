@@ -13,10 +13,12 @@
           国
         .search-sidebar__box__list
           -Area.where(ancestry: nil).each do |area|
-            =f.label :id_in, class:"search-sidebar__box__list__label",for:"q_id_in_#{area.id}" do
-              =f.check_box :id_in, {multiple: true,class:"search-sidebar__box__list__checkbox"}, area.id, nil
+            =f.label :id_in, class:"search-sidebar__box__list__label",for:"parent_#{area.id}" do
+              =f.check_box :id_in, {id:"parent_#{area.id}",name:"parent[]", multiple: true,class:"search-sidebar__box__list__checkbox"}, area.id, nil
               %span.search-area-name
                 =area.name
+            -# %label{class:"search-sidebar__box__list__label",for:"parent_#{area.id}"}
+            -#   %check_box{ name:"parent_#{area.id}", multiple: true,class:"search-sidebar__box__list__checkbox",value:area.id}
       .search-sidebar__box
         %span.search-sidebar__box__title
           特徴
