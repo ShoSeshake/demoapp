@@ -78,11 +78,13 @@
                 }
             }
             &__introduction {
-                height: 100px;
+                margin-top: 10px;
+                padding: 10px;
+                border: dashed 1px lightgrey;
+                height: 110px;
                 overflow: scroll;
                 &__hidden {
                     display: none;
-                    padding: 20px 20px 0;
                     &__merits {
                         margin-bottom: 10px;
                         font-size: 12px;

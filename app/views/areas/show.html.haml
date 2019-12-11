@@ -60,6 +60,25 @@
   -else
     .area-middle
       .area-middle__name
+        この国の都市
+      .area-middle__areas
+        -@area.descendants.limit(3).each do |area|
+          .area-middle__areas__area{"data-area": area.id}
+            =link_to area_path(area) do
+              .area-middle__areas__area__image{"style":"background-image:url(#{area.image.url});"}
+              .area-middle__areas__area__name
+                =area.name
+      .area-middle__box
+        -@area.descendants.limit(3).each do |area|
+          .area-middle__box__introduction.area-introduction{id:"area-description-#{area.id}"}
+            .area-middle__box__introduction__hidden__merits
+              -area.merits.each do |m|
+                =m.title
+                \/
+            .area-middle__box__introduction__text
+              =simple_format(area.description)
+    .area-middle
+      .area-middle__name
         この国の都市のアドバイザー
       .area-middle__advisers
         -User.where(area_id: @area.descendant_ids).limit(3).each do |a|
