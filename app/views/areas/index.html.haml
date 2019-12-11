@@ -24,7 +24,7 @@
               .index__box__flex__area__image{"style":"background-image:url(#{area.image.url});"}
             .index__box__flex__area__name
               =link_to area_path(area), class:"index-area-links" do
-                =s.name
+                =area.name
       .index__box__introduction
         -@areas.each do |area|
           .index__box__introduction__hidden.area-introduction{id:"area-description-#{area.id}"}
@@ -33,7 +33,7 @@
                 =m.title
                 \/
             .index__box__introduction__hidden__text
-              =simple_format(s.description)
+              =simple_format(area.description)
     .index__box
       .index__box__title
         新着アドバイザー

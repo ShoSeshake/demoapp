@@ -3,7 +3,7 @@ class AreasController < ApplicationController
   before_action :header_menu
 
   def index
-    @areas = Area.order('id DESC').limit(3)
+    @areas = Area.where.not(ancestry: nil).order("RAND()").limit(3)
     @advisers = User.where(adviser: true).order('id DESC').limit(3)
   end
   

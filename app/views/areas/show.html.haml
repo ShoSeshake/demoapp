@@ -1,41 +1,41 @@
 =render 'shared/header'
 .wrapper
-  .school-background
-    .school-background__image{"style":"background-image:url(#{@school.image.url});"}
-    =image_tag "#{@school.image.url}",class:"school-bg-image"
-  .school-top
-    .school-top__name
-      =@school.name
-    .school-top__flex-box
-      .school-top__flex-box__left
-        所在地：
-      .school-top__flex-box__right
-        =@school.location
-    .school-top__flex-box
-      .school-top__flex-box__left
-        学校紹介：
-      .school-top__flex-box__right
-        =@school.description
-    .school-top__flex-box
-      .school-top__flex-box__left
+  .area-background
+    .area-background__image{"style":"background-image:url(#{@area.image.url});"}
+    =image_tag "#{@area.image.url}",class:"area-bg-image"
+  .area-top
+    .area-top__name
+      =@area.name
+    .area-top__flex-box
+      .area-top__flex-box__left
+        国：
+      .area-top__flex-box__right
+        =@area.root.name if @area.has_parent?
+    .area-top__flex-box
+      .area-top__flex-box__left
+        都市紹介：
+      .area-top__flex-box__right
+        =@area.description
+    .area-top__flex-box
+      .area-top__flex-box__left
         特徴：
-      .school-top__flex-box__right
-        -@school.merits.each do |m|
+      .area-top__flex-box__right
+        -@area.merits.each do |m|
           =m.title
           %br
-  .school-middle
-    .school-middle__name
+  .area-middle
+    .area-middle__name
       この学校のアドバイザー
-    .school-middle__advisers
-      -@school.users.limit(3).each do |a|
-        .school-middle__advisers__adviser{"data-adviser":a.id}
+    .area-middle__advisers
+      -@area.users.limit(3).each do |a|
+        .area-middle__advisers__adviser{"data-adviser":a.id}
           =link_to user_path(a) do
-            .school-middle__advisers__adviser__image{"style":"background-image:url(#{a.icon.url});"}
-            .school-middle__advisers__adviser__name
+            .area-middle__advisers__adviser__image{"style":"background-image:url(#{a.icon.url});"}
+            .area-middle__advisers__adviser__name
               =a.name
-    .school-middle__box
-      -@school.users.limit(3).each do |a|
-        .school-middle__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
-          .school-middle__box__introduction__text
+    .area-middle__box
+      -@area.users.limit(3).each do |a|
+        .area-middle__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
+          .area-middle__box__introduction__text
             =simple_format(a.profile)
 =render "shared/footer"

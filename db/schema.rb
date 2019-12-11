@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_123820) do
     t.string "name", null: false
     t.text "description", null: false
     t.string "image"
+    t.string "limit"
+    t.string "term"
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
