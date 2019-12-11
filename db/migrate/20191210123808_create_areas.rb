@@ -4,6 +4,8 @@ class CreateAreas < ActiveRecord::Migration[5.2]
       t.string     :name,        null: false,   index: true
       t.text       :description, null: false
       t.string     :image
+      t.string     :limit
+      t.strign     :term
       t.string     :ancestry,    index: true
       t.timestamps
     end
