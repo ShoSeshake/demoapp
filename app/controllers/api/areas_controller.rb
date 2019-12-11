@@ -1,6 +1,7 @@
 class Api::AreasController < ApplicationController
   def search
-      @q = Area.ransack(search_params)
+
+      @q = Area.where.not(ancestry: nil).ransack(search_params)
       @areas = @q.result(distinct: true)
   end
 

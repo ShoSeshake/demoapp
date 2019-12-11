@@ -68,7 +68,7 @@
             所属する学校
           %span.required
             必須
-        = f.collection_select :area_id, Area.order(id: :desc), :id, :name, {prompt: ""},{class:"user-text-field",id:"user-area-select",required:"required"}
+        = f.collection_select :area_id, Area.where.not(ancestry: nil), :id, :name, {prompt: ""},{class:"user-text-field",id:"user-area-select",required:"required"}
       .singup-form__field
         .singup-form__field__title
           チャット可能時間

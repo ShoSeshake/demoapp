@@ -10,13 +10,13 @@
         = f.text_field :name_cont ,{placeholder: "Type a keyword",class:"search-sidebar__box__form"}
       .search-sidebar__box
         %span.search-sidebar__box__title
-          エリア
-        -# .search-sidebar__box__list
-        -#   -Area.locations_i18n.invert.each_with_index do |c, index|
-        -#     =f.label :location_in, class:"search-sidebar__box__list__label",for:"q_location_in_#{index}" do
-        -#       =f.check_box :location_in, {multiple: true,class:"search-sidebar__box__list__checkbox"}, index, nil
-        -#       %span.search-area-name
-        -#         =c[0]
+          国
+        .search-sidebar__box__list
+          -Area.where(ancestry: nil).each do |area|
+            =f.label :id_in, class:"search-sidebar__box__list__label",for:"q_id_in_#{area.id}" do
+              =f.check_box :id_in, {multiple: true,class:"search-sidebar__box__list__checkbox"}, area.id, nil
+              %span.search-area-name
+                =area.name
       .search-sidebar__box
         %span.search-sidebar__box__title
           特徴
@@ -30,6 +30,6 @@
   .search-main
     .search-main__areas
       .search-main__areas__grid
-        -@areas.each do |s|
+        -@areas.each do |area|
           =render partial:'areas/area', locals:{area:area} 
 =render "shared/footer"

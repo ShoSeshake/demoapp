@@ -96,6 +96,9 @@
                 &__text {
                     text-align: center;
                 }
+                &__area-name {
+                    text-align: center;
+                }
             }
         }
         &__box {
@@ -109,5 +112,24 @@
                     font-size: 18px;
                 }
             }
+        }
+    }
+    
+    a.area-show-link {
+        color: $orange;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        &:after {
+            content: '';
+            border-bottom: 1px $orange solid;
+            position: absolute;
+            width: 0;
+            transition: width 0.5s;
+            bottom: 0;
+            left: 0;
+        }
+        &:hover:after {
+            width: 100%;
         }
     }

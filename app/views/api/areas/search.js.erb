@@ -1,1 +1,1 @@
-$(".search-main__areas__grid").html("<% @areas.each do |s| %><%= j(render partial: 'areas/area',locals: {area: area}) %><% end %>")
+$(".search-main__areas__grid").html("<% @areas.each do |area| %><%= j(render partial: 'areas/area',locals: {area: area}) %><% end %>")

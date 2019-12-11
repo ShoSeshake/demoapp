@@ -3,39 +3,77 @@
   .area-background
     .area-background__image{"style":"background-image:url(#{@area.image.url});"}
     =image_tag "#{@area.image.url}",class:"area-bg-image"
-  .area-top
-    .area-top__name
-      =@area.name
-    .area-top__flex-box
-      .area-top__flex-box__left
-        国：
-      .area-top__flex-box__right
-        =@area.root.name if @area.has_parent?
-    .area-top__flex-box
-      .area-top__flex-box__left
-        都市紹介：
-      .area-top__flex-box__right
-        =@area.description
-    .area-top__flex-box
-      .area-top__flex-box__left
-        特徴：
-      .area-top__flex-box__right
-        -@area.merits.each do |m|
-          =m.title
-          %br
-  .area-middle
-    .area-middle__name
-      この学校のアドバイザー
-    .area-middle__advisers
-      -@area.users.limit(3).each do |a|
-        .area-middle__advisers__adviser{"data-adviser":a.id}
-          =link_to user_path(a) do
-            .area-middle__advisers__adviser__image{"style":"background-image:url(#{a.icon.url});"}
-            .area-middle__advisers__adviser__name
-              =a.name
-    .area-middle__box
-      -@area.users.limit(3).each do |a|
-        .area-middle__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
-          .area-middle__box__introduction__text
-            =simple_format(a.profile)
+  -if @area.parent
+    .area-top
+      .area-top__name
+        =@area.name
+      .area-top__flex-box
+        .area-top__flex-box__left
+          国：
+        .area-top__flex-box__right
+          =link_to area_path(@area.parent), class:"area-show-link" do
+            =@area.root.name if @area.has_parent?
+      .area-top__flex-box
+        .area-top__flex-box__left
+          都市紹介：
+        .area-top__flex-box__right
+          =@area.description
+      .area-top__flex-box
+        .area-top__flex-box__left
+          特徴：
+        .area-top__flex-box__right
+          -@area.merits.each do |m|
+            =m.title
+            %br
+  -else
+    .area-top
+      .area-top__name
+        =@area.name
+      .area-top__flex-box
+        .area-top__flex-box__left
+          国紹介：
+        .area-top__flex-box__right
+          =@area.description
+      .area-top__flex-box
+        .area-top__flex-box__left
+          特徴：
+        .area-top__flex-box__right
+          -@area.merits.each do |m|
+            =m.title
+            %br
+  -if @area.parent
+    .area-middle
+      .area-middle__name
+        この都市のアドバイザー
+      .area-middle__advisers
+        -@area.users.limit(3).each do |a|
+          .area-middle__advisers__adviser{"data-adviser":a.id}
+            =link_to user_path(a) do
+              .area-middle__advisers__adviser__image{"style":"background-image:url(#{a.icon.url});"}
+              .area-middle__advisers__adviser__name
+                =a.name
+      .area-middle__box
+        -@area.users.limit(3).each do |a|
+          .area-middle__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
+            .area-middle__box__introduction__text
+              =simple_format(a.profile)
+  -else
+    .area-middle
+      .area-middle__name
+        この国の都市のアドバイザー
+      .area-middle__advisers
+        -User.where(area_id: @area.descendant_ids).limit(3).each do |a|
+          .area-middle__advisers__adviser{"data-adviser":a.id}
+            =link_to user_path(a) do
+              .area-middle__advisers__adviser__image{"style":"background-image:url(#{a.icon.url});"}
+              .area-middle__advisers__adviser__name
+                =a.name
+            .area-middle__advisers__adviser__area-name
+              =link_to area_path(a.area), class:"area-show-link" do
+                =a.area.name
+      .area-middle__box
+        -User.where(area_id: @area.descendant_ids).limit(3).each do |a|
+          .area-middle__box__introduction.adviser-introduction{id:"adviser-description-#{a.id}"}
+            .area-middle__box__introduction__text
+              =simple_format(a.profile)
 =render "shared/footer"

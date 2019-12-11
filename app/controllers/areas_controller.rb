@@ -14,10 +14,10 @@ class AreasController < ApplicationController
   def search
     if params[:keyword]
       @q = Area.ransack(params[:q])
-      @areas = Area.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(20)
+      @areas = Area.where('name LIKE(?) && ancestry != (?)', "%#{params[:keyword]}%","").order("created_at DESC").limit(20)
     else
       params[:q] = { sorts: 'created_at desc' }
-      @q = Area.ransack(params[:q])
+      @q = Area.where.not(ancestry: nil).ransack(params[:q])
       @areas = @q.result(distinct: true)
     end
   end

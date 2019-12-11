@@ -1,5 +1,5 @@
 $(function() {
-    var advisers = $('.school-middle__advisers__adviser');
+    var advisers = $('.area-middle__advisers__adviser');
     advisers.on('mouseenter', function() {
         var id = $(this).data('adviser');
         advisers.css({

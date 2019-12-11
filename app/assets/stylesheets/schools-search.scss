@@ -1,6 +1,6 @@
 .search-sidebar {
     width: 300px;
-    padding: 30px 25px;
+    padding: 30px 20px;
     border-right: 1px solid lightgrey;
     height: auto;
     position: relative;
@@ -77,19 +77,20 @@
             }
             .search-area-name,
             .search-merit-name {
-                padding-left: 20px;
+                font-size: 14px;
+                padding-left: 14px;
                 position: relative;
-                margin-right: 5px;
+                margin-right: 3px;
                 &:before {
                     content: "";
                     display: block;
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 14px;
-                    height: 14px;
+                    width: 12px;
+                    height: 12px;
                     border: 1px solid $grey;
-                    border-radius: 4px;
+                    border-radius: 3px;
                 }
             }
         }
