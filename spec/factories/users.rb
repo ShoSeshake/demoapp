@@ -21,9 +21,15 @@ FactoryBot.define do
     icon              {File.open("#{Rails.root}/public/images/test_image.jpg")}
     background_image  {File.open("#{Rails.root}/public/images/test_image.jpg")}
     adviser           {1}
-    area_id           {1}
+    area
     admin              {0}
     schedules {[
+      FactoryBot.build(:schedule, user: nil),
+      FactoryBot.build(:schedule, user: nil),
+      FactoryBot.build(:schedule, user: nil),
+      FactoryBot.build(:schedule, user: nil),
+      FactoryBot.build(:schedule, user: nil),
+      FactoryBot.build(:schedule, user: nil),
       FactoryBot.build(:schedule, user: nil)
     ]}
   end
