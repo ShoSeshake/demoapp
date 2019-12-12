@@ -5,6 +5,6 @@ FactoryBot.define do
     image              {File.open("#{Rails.root}/public/images/test_image.jpg")}
     limit              {Faker::Games::Pokemon.move}
     term              {Faker::Games::Pokemon.move}
-    ancestry              {Faker::Games::Pokemon.move}
+    ancestry              {1}
   end
 end

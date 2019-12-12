@@ -5,4 +5,5 @@ class Area < ApplicationRecord
   has_many :users
   has_many :areas_merits
   has_many :merits, through: :areas_merits
+  validates :name, :description, presence: true
 end
