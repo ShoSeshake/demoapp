@@ -77,7 +77,6 @@ group :production do
 end
 
 # 画像アップロード系
-# gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-google-storage'
