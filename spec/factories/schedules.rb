@@ -1,15 +1,9 @@
 FactoryBot.define do
   factory :schedule, class: Schedule do
-    name              {Faker::JapaneseMedia::OnePiece.character}
-    email                 {Faker::Internet.email}
-    password              {"00000000"}
-    password_confirmation {"00000000"}
-    profile              {Faker::Games::Pokemon.}
-    icon              {File.open("#{Rails.root}/public/images/test_image.jpg")}
-    background_image  {File.open("#{Rails.root}/public/images/test_image.jpg")}
-    ticket            {0}
-    adviser           {0}
-    area_id           {1}
-    admin              {0}
+    availability    {0}
+    day             {1}
+    start_time    {Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default)}
+    end_time       {Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default)}
+    user
   end
 end
