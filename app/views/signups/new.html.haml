@@ -1,0 +1,10 @@
+.wrapper.signup-page-wrapper
+  .sigunup-header
+    =image_tag 'header-logo.png',class:"signup-logo"
+  .singup-form
+    .singup-form__field
+      =button_to user_signups_path, class:"singup-btn",method: :get do
+        ユーザーとして新規登録
+    .singup-form__field
+      =button_to adviser_signups_path, class:"singup-btn",method: :get do
+        アドバイザーとして新規登録
