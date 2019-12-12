@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :schedule, class: Schedule do
-    availability    {0}
+    availability    {1}
     day             {1}
-    start_time    {Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default)}
-    end_time       {Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default)}
+    start_time    {Time.now}
+    end_time       {Time.now.since(30.minute)}
     user
   end
 end

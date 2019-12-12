@@ -10,8 +10,13 @@ class Schedule < ApplicationRecord
 
   def start_end_check
     if self.availability?
-      errors.add(:end_time, "の日付を正しく記入してください。") unless
-      self.start_time < self.end_time
+      if self.start_time.blank?
+        errors.add(:start_time, "を入力してください")
+      elsif self.end_time.blank?
+        errors.add(:end_time, "を入力してください")
+      elsif self.start_time >= self.end_time
+        errors.add(:end_time, "を正しく記入してください")
+      end
     end
   end
 end
