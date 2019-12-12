@@ -87,14 +87,14 @@ describe User do
       expect(user).to be_valid
     end
 
-    # ticketが空では登録できないこと
+    # areaが空では登録できないこと
     it "is invalid without a area" do
       user = build(:adviser, area: nil)
       user.valid?
       expect(user.errors[:area]).to include("を入力してください")
     end
 
-    # ticketが空では登録できないこと
+    # scheduleが6未満では登録できないこと
     it "is invalid with less than 6 schedules" do
       user = build(:adviser,     schedules: [
         FactoryBot.build(:schedule, user: nil),
@@ -108,7 +108,7 @@ describe User do
       expect(user.errors[:schedules]).to include("は7文字以上で入力してください")
     end
 
-    # ticketが空では登録できないこと
+    # scheduleが8以上では登録できないこと
     it "is invalid with more than 8 schedules" do
       user = build(:adviser,     schedules: [
         FactoryBot.build(:schedule, user: nil),
