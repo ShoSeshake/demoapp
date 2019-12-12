@@ -1,1 +1,2 @@
 $(".search-main__areas__grid").html("<% @areas.each do |area| %><%= j(render partial: 'areas/area',locals: {area: area}) %><% end %>")
+  $('body,html').animate({scrollTop: 0},500);
