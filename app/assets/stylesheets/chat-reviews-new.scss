@@ -25,7 +25,6 @@
             height: 140px;
             width: 140px;
             border-radius: 50%;
-            background-color: black;
             background-size: cover;
             background-position: center center;
         }
@@ -50,21 +49,22 @@
         }
     }
     #chat-review-btn {
-        font-weight: bold;
-        margin: 10px auto 0;
-        height: 50px;
+        background-image: linear-gradient(260deg, #e6d70a, #ffaf19);
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.02);
+        color: white;
+        border: none;
+        transition: all 0.2s ease;
         display: block;
-        border: $orange solid 1px;
-        color: $orange;
-        font-size: 20px;
-        width: 150px;
+        margin: 10px auto;
+        width: 50%;
+        padding: 10px;
         text-align: center;
-        padding: 10px 0;
-        background-color: white;
+        font-size: 17px;
+        border-radius: 20px;
         cursor: pointer;
         &:hover {
-            background-color: $orange;
-            color: white;
+            background: unset;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(260deg, #e6d70a, #ffaf19);
         }
     }
 }

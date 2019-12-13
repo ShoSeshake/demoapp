@@ -65,7 +65,7 @@
       .singup-form__field
         .singup-form__field__title
           =f.label :area_id do
-            所属する学校
+            ワーホリで行った都市
           %span.required
             必須
         = f.collection_select :area_id, Area.where.not(ancestry: nil), :id, :name, {prompt: ""},{class:"user-text-field",id:"user-area-select",required:"required"}

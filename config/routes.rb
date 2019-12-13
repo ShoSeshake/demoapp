@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resource :signups, only: [:create] do
     collection do
-      get 'new'
+      get 'registration'
       get 'adviser'
       post 'adviser_create'
       get 'user'
