@@ -53,6 +53,8 @@
                 %br
                 = current_user.adviser ? c.user.name : c.adviser.name
                 とチャットの予定があります
+                =link_to test_chat_path(c),method: :patch,class:"test-update-btn" do
+                  開始日時を現在にする
         - else
           チャットの予定はございません
       -# -if @user.adviser?

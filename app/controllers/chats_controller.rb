@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
   require 'time'
   before_action :authenticate_user!
   before_action :set_user, only: [:new,:create]
-  before_action :set_chat, only: [:update, :video, :receive]
+  before_action :set_chat, only: [:update, :video, :receive, :test]
   before_action :chat_check, only: [:update, :video, :receive]
 
   def new
@@ -27,6 +27,11 @@ class ChatsController < ApplicationController
   def update
     @chat.update_attribute(:user_peer_id, params[:chat][:user_peer_id])
     render 'update.js.erb'
+  end
+
+  def test
+    @chat.update_attribute(:start_at, DateTime.now)
+    redirect_to user_path(current_user), notice: "予約日時を変更しました。#{@chat.start_at.strftime("%Y年%m月%d日 %H:%M")}からです"
   end
 
   def video

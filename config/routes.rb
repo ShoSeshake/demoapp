@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :chats, only: [:update] do
     member do
       get 'video'
+      patch 'test'
     end
     
     collection do
