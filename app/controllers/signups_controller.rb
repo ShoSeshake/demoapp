@@ -28,7 +28,8 @@ class SignupsController < ApplicationController
       sign_in @user unless user_signed_in?
       redirect_to complete_signups_path
     else
-      render user_signups_path, alert: "必須項目を全てご記入ください"
+      flash.now[:alert] = "必須項目を全てご記入ください"
+      render :user
     end
   end
 
@@ -62,14 +63,5 @@ class SignupsController < ApplicationController
       :area_id,
       schedules_attributes:[:id,:day,:availability,:start_time, :end_time]
     ).merge(adviser: 1)
-  end
-
-  def schedule_check(user)
-    user.schedules.each do |s|
-      if s.availability?
-        render :adviser unless s.start_time.strftime('%H:%M').to_datetime < s.end_time.strftime('%H:%M').to_datetime
-      else
-      end
-    end
   end
 end

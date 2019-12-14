@@ -71,7 +71,6 @@ class ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(
-      :adviser_peer_id,
       :user_peer_id,
       :start_at
     ).merge(user_id: current_user.id, adviser_id: @user.id)
